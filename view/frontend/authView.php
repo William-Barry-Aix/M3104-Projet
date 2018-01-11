@@ -1,7 +1,7 @@
 <?php $title = "Sign in" ?>
 <?php ob_start(); ?>
     <div class="container"
-    <form method="get"action="signin">
+    <form method="post"action="signin">
         <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">

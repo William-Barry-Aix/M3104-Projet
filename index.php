@@ -3,14 +3,18 @@ require('controler/frontend.php');
 try{
      if (isset($_GET['action'])) {
          if ($_GET['action'] == 'signin') {
-             signin();
+             signIn();
         }
+         if ($_GET['action'] ==  'signinfinish') {
+             signInFinish();
+         }
         if ($_GET['action'] ==  'signUpRegister') {
              signUpRegister();
         }
          if ($_GET['action'] ==  'signup') {
-             signup();
+             signUp();
          }
+
      }
 
      else {
