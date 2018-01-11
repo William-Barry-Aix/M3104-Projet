@@ -1,0 +1,118 @@
+/*node-sass --watch --recursive --output css*/
+
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+
+
+
+
+$nav-link-disabled-color:           $blue;
+$navbar-dark-toggler-border-color : transparent;
+$navbar-dark-toggler-icon-bg : url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(149, 88, 8, 0.75)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+$body-bg: #141519;
+$body-color: white;
+
+
+
+$dropdown-min-width: 0;
+$dropdown-bg:	$dark;
+$jumbotron-bg: 						rgba(149, 88, 8, 0.24);
+$navbar-padding-y:                  0;
+$navbar-padding-x:                  0;
+$navbar-toggler-padding-y:			9px;
+$navbar-toggler-padding-x:			10px;
+.navbar-brand {
+	padding: 15px 15px;
+}
+body {
+    min-width: 320px;
+}
+.container>.navbar-collapse{
+	margin-right: -15px;
+    margin-left: -15px;
+
+}
+.nav>li>a{
+	position: relative;
+	display: block;
+	padding: 10px 15px;
+}
+.navbar{
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
+}
+
+li.open .dropdown-menu .dropdown:hover .dropdown-menu {
+	display: block;
+	top: -25%;
+	right: 100%;
+}
+
+li.open .dropdown-menu .dropdown .caret {
+	display: none;
+}
+
+li.open .dropdown-menu .dropdown > a:before {
+	display:block;
+	content:" ";
+	float:left;
+	width:0;
+	height:0;
+	border-color:transparent;
+	border-style:solid;
+	border-width:5px 5px 5px 0;
+	border-right-color:#999;
+	margin-top:5px;
+	margin-left:-10px;
+}
+li.nav-item:hover{
+	background-color: rgba(149, 88, 8, 0.75);
+}
+
+@media (min-width: 576px) {
+    .container {
+      max-width: unset !important; } }
+
+$dropdown-link-hover-bg: rgba(149, 88, 8, 0.75);
+$dropdown-link-active-bg: rgba(149, 88, 8, 0.75);
+$dropdown-bg: rgba(20,21,25,0.5);
+.nav-pills .show > .nav-link {
+  color: rgba(255, 255, 255, 0.5) !important;
+  background-color: transparent !important;}
+
+
+@import "node_modules/bootstrap/scss/root";
+@import "node_modules/bootstrap/scss/grid";
+@import "node_modules/bootstrap/scss/navbar";
+@import "node_modules/bootstrap/scss/reboot";
+@import "node_modules/bootstrap/scss/buttons";
+@import "node_modules/bootstrap/scss/transitions";
+@import "node_modules/bootstrap/scss/tables";
+@import "node_modules/bootstrap/scss/utilities";
+@import "node_modules/bootstrap/scss/dropdown";
+@import "node_modules/bootstrap/scss/jumbotron";
+@import "node_modules/bootstrap/scss/nav";
+
+/*
+@import "tables";
+@import "forms";
+@import "transitions";
+@import "button-group";
+@import "input-group";
+@import "custom-forms";
+@import "nav";
+@import "card";
+@import "breadcrumb";
+@import "pagination";
+@import "badge";
+@import "jumbotron";
+@import "alert";
+@import "progress";
+@import "media";
+@import "list-group";
+@import "close";
+@import "modal";
+@import "tooltip";
+@import "popover";
+@import "carousel";
+@import "print";*/
