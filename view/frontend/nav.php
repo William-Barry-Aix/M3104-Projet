@@ -11,7 +11,7 @@
 	                        <a class="nav-link px-3" href="#">Sign up</a>
 	                    </li>
 	                    <li class="nav-item py-1">	                        
-	                        <a class="nav-link px-3" href="#">Sign in</a>
+	                        <a class="nav-link px-3" href="index.php?action=signin">Sign in</a>
 	                    </li>
 	                    <li class="nav-item py-1 ">
 	                        <a class="nav-link px-3" href="#">Translate</a>
