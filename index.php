@@ -6,8 +6,11 @@ try{
              signin();
         }
         if ($_GET['action'] ==  'signUpRegister') {
-             singUpRegister();
+             signUpRegister();
         }
+         if ($_GET['action'] ==  'signup') {
+             signup();
+         }
      }
 
      else {
