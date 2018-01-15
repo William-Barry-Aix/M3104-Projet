@@ -33,3 +33,5 @@ function signUpRegister(){
     mail($email,"Tp2",$message);
     require ('view/frontend/signUpFinishView.php');
 }
+
+//test
