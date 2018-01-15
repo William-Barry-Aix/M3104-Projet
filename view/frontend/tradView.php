@@ -1,11 +1,20 @@
-<?php $title = "Sign in" ?>
+<?php $title = "Translate" ?>
 <?php ob_start(); ?>
     <div class="container"
-    <form method="post"action="signin">
+    <form method="post"action="translation">
         <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <div class="row">
+                <div class="col-5">
+                    <label for="exampleFormControlTextarea1"><?= _("Text to translate"); ?></label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+                </div>
+                <div class="col-2">
+                </div>
+                <div class="col-5">
+                    <label for="exampleFormControlTextarea1"><?= _("Text translated"); ?></label>
+                    <textarea class = "form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+                </div>
+            </div>
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
