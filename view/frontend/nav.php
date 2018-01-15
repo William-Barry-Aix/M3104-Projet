@@ -14,7 +14,7 @@
 	                        <a class="nav-link px-3" href="index.php?action=signin"><?= _("Sign in") ?></a>
 	                    </li>
 	                    <li class="nav-item py-1 ">
-	                        <a class="nav-link px-3" href="tradView.php?action=translation"><?= _("Translate") ?></a>
+	                        <a class="nav-link px-3" href="index.php?action=translation"><?= _("Translate") ?></a>
 	                    </li>
 	                    <li class="nav-item dropdown py-1">
 							<a href="#" class="nav-link px-3 dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i>Lang<b class="caret"></b></a>

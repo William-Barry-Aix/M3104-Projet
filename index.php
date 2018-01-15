@@ -14,6 +14,9 @@ try{
          if ($_GET['action'] ==  'signup') {
              signUp();
          }
+         if ($_GET['action'] == 'translation') {
+             translation();
+         }
 
      }
 

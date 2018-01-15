@@ -4,6 +4,9 @@ include 'model/UsersManage.php';
 function home(){
     require('view/frontend/homeView.php');
 }
+function translation(){
+    require('view/frontend/tradView.php');
+}
 function signUp(){
     require ('view/frontend/signUpView.php');
 }
