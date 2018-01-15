@@ -1,5 +1,4 @@
 <?php
-include 'model/UsersManage.php';
 /**
  * Created by PhpStorm.
  * User: p16009763
