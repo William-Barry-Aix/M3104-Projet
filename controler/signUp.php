@@ -18,8 +18,14 @@ class signUp
         $prenom = $_POST['prenom'];
         $email = $_POST['e_mail'];
         $password = $_POST['mdp'];
+        $verifPassWord = $_POST['verifMdp'];
         $tel = $_POST['tel'];
         $today = date('Y-m-d');
+
+        if ( $password != $verifPassWord){
+            $_SESSION['mdpErreur'] = "true";
+            require ('view/frontend/signUpView.php');
+        }
 
         $user->addUser($nom,$prenom,$email,$password,$tel,$today);
 
