@@ -1,3 +1,4 @@
+
 <?php $title = SignUp ?>
 <?php ob_start();
 if ($_SESSION['mdpErreur'] == 'true'){
