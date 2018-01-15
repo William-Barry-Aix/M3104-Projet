@@ -1,7 +1,7 @@
 <?php $title = "Sign in" ?>
 <?php ob_start(); ?>
     <div class="container justify-content-center" >
-        <form method="post"action="index.php?action=signin" class="col-6 my-10 mx-auto" style="margin-top: 25%">
+        <form method="post"action="index.php?action=signinfinish" class="col-6 my-10 mx-auto" style="margin-top: 25%">
             <div class="row">
                 <div class="form-group d-block">
                     <label for="exampleInputEmail1">Email address</label>

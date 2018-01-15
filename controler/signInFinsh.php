@@ -5,9 +5,20 @@
  * Date: 15/01/18
  * Time: 14:02
  */
+include ('model/UsersManage.php');
 class signInFinsh
 {
     function signInFinish(){
-        require ('view/frontend/authFinishView.php');
+        $this->signInSQL();
+        $home = new Home();
+        $home->home();
+    }
+    function signInSQL(){
+        $user = new UsersManage();
+
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+
+        $user->getUser($email,$password);
     }
 }

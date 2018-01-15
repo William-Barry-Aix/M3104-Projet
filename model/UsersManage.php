@@ -34,10 +34,8 @@ class UsersManage extends DbConnect
     {
         $dbLink = $this->dbConnect();
 
-        $query = 'SELECT TYPECOMPTE,PRENOM FROM user WHERE EMAIL = "'. $email .'" AND MDP = "'.$password.'"';
-
+        $query = 'SELECT `TYPECOMPTE`,`PRENOM` FROM `Users` WHERE EMAIL = "'. $email .'" AND MDP = "'.$password.'"';
         if (!($dbResult = mysqli_query($dbLink, $query))) {
-            var_dump($_POST);
             echo 'Erreur dans requête<br />';
             // Affiche le type d'erreur.
             echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
