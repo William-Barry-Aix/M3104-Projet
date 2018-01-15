@@ -37,7 +37,8 @@ try{
      }
 
      else {
-         home();
+         $home = new Home();
+         $home->home();
      }
 }catch (Exception $e){
     echo 'Erreur : ' . $e->getMessage();
