@@ -34,4 +34,3 @@ function signUpRegister(){
     require ('view/frontend/signUpFinishView.php');
 }
 
-//test
