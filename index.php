@@ -1,21 +1,25 @@
 <?php
-require('controler/frontend.php');
 try{
      if (isset($_GET['action'])) {
          if ($_GET['action'] == 'signin') {
-             signIn();
+             $signin = new signin();
+             $signin->signIn();
         }
          if ($_GET['action'] ==  'signinfinish') {
-             signInFinish();
+             $signinFinish = new signInFinsh();
+             $signinFinish->signInFinish();
          }
         if ($_GET['action'] ==  'signUpRegister') {
-             signUpRegister();
+             $signup = new signUp();
+             $signup->signUpRegister();
         }
          if ($_GET['action'] ==  'signup') {
-             signUp();
+             $signup = new signUp();
+             $signup->signUp();
          }
          if ($_GET['action'] ==  'deconnexion') {
-             signUp();
+             $deconnexion = new deconnexion();
+             $deconnexion->disconect();
          }
 
      }
