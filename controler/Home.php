@@ -10,6 +10,8 @@ include 'model/UsersManage.php';
 class Home
 {
     function home(){
+        if (isset($_SESSION['type']))
+
         require('view/frontend/homeView.php');
     }
 }

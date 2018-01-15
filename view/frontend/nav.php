@@ -7,12 +7,19 @@
 	            </button>
 	            <div class="collapse navbar-collapse navbar-toggleable-md justify-content" id="navbarSupportedContent">
 	                <ul class="nav nav-pills navbar-nav ml-auto ">
-	                    <li class="nav-item py-1">
+                        <?php if (!isset($_SESSION['type'])): ?>
+                        <li class="nav-item py-1">
 	                        <a class="nav-link px-3" href="#">Sign up</a>
 	                    </li>
 	                    <li class="nav-item py-1">	                        
 	                        <a class="nav-link px-3" href="index.php?action=signin">Sign in</a>
 	                    </li>
+                        <?php endif; ?>
+                        <?php if (isset($_SESSION['type'])): ?>
+                            <li class="nav-item py-1">
+                                <a class="nav-link px-3" href="index.php?action=deconnexion">Deconnexion</a>
+                            </li>
+                        <?php endif; ?>
 	                    <li class="nav-item py-1 ">
 	                        <a class="nav-link px-3" href="#">Translate</a>
 	                    </li>

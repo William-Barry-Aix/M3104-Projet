@@ -17,6 +17,7 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+    </div>
 <?php $content = ob_get_clean(); ?>
 <?php require('template.php');
 
