@@ -22,7 +22,7 @@
                             <li class="nav-item dropdown py-1">
                                 <a href="#" class="nav-link px-3 dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i>Option<b class="caret"></b></a>
                                 <ul class="dropdown-menu py-0  my-0 border-0">
-                                    <li class="px-3  nav-item"><a class="nav-link" href="#">Compte</a></li>
+                                    <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=compte">Compte</a></li>
                                     <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=deconnexion">Deconnexion</a></li>
                                 </ul>
                             </li>
@@ -31,8 +31,8 @@
                             <li class="nav-item dropdown py-1">
                                 <a href="#" class="nav-link px-3 dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i>Option<b class="caret"></b></a>
                                 <ul class="dropdown-menu py-0  my-0 border-0">
-                                    <li class="px-3  nav-item"><a class="nav-link" href="#">Compte</a></li>
-                                    <li class="px-3  nav-item"><a class="nav-link" href="#">Ajouter Mot</a></li>
+                                    <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=compte">Compte</a></li>
+                                    <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=translation">Ajouter Traduction</a></li>
                                     <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=deconnexion">Deconnexion</a></li>
                                 </ul>
                             </li>
@@ -41,8 +41,8 @@
                             <li class="nav-item dropdown py-1">
                                 <a href="#" class="nav-link px-3 dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i>Option<b class="caret"></b></a>
                                 <ul class="dropdown-menu py-0  my-0 border-0">
-                                    <li class="px-3  nav-item"><a class="nav-link" href="#">Compte</a></li>
-                                    <li class="px-3  nav-item"><a class="nav-link" href="#">Gestion Site</a></li>
+                                    <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=compte">Compte</a></li>
+                                    <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=gererSite">Gestion Site</a></li>
                                     <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=deconnexion">Deconnexion</a></li>
                                 </ul>
                             </li>

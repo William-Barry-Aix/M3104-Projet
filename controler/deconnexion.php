@@ -10,5 +10,6 @@ class deconnexion
 {
     function disconect(){
         $_SESSION = array();
+        require('view/frontend/homeView.php');
     }
 }
