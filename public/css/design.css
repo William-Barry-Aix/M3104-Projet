@@ -41,10 +41,6 @@ li.open .dropdown-menu .dropdown > a:before {
 li.nav-item:hover {
   background-color: rgba(149, 88, 8, 0.75); }
 
-@media (min-width: 576px) {
-  .container {
-    max-width: unset !important; } }
-
 .nav-pills .show > .nav-link {
   color: rgba(255, 255, 255, 0.5) !important;
   background-color: transparent !important; }
@@ -3975,3 +3971,5 @@ a.text-dark:focus, a.text-dark:hover {
 @import "popover";
 @import "carousel";
 @import "print";*/
+
+/*# sourceMappingURL=design.css.map */

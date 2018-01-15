@@ -69,9 +69,7 @@ li.nav-item:hover{
 	background-color: rgba(149, 88, 8, 0.75);
 }
 
-@media (min-width: 576px) {
-    .container {
-      max-width: unset !important; } }
+
 
 $dropdown-link-hover-bg: rgba(149, 88, 8, 0.75);
 $dropdown-link-active-bg: rgba(149, 88, 8, 0.75);
