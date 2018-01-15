@@ -12,7 +12,6 @@ function signIn(){
     require ('view/frontend/authView.php');
 }
 function signInFinish(){
-
     require ('view/frontend/authFinishView.php');
 }
 function signUpRegister(){
