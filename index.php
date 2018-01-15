@@ -29,6 +29,10 @@ try{
              $GestionSite = new gestionSite();
              $GestionSite->gestionSite();
          }
+         if ($_GET['action'] ==  'translation') {
+             $GestionSite = new gestionSite();
+             $GestionSite->gestionSite();
+         }
 
      }
 
