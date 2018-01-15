@@ -1,4 +1,5 @@
-<?php $title = 'Translator'; ?>
+<?php $title = 'Translator';
+?>
 <?php ob_start(); ?>
     <section id="description">
         <div class="container-fluid">
