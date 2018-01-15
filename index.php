@@ -1,5 +1,13 @@
 <?php
 include 'controler/Home.php';
+include 'controler/compte.php';
+include 'controler/deconnexion.php';
+include 'controler/gestionSite.php';
+include 'controler/signIn.php';
+include 'controler/signInFinsh.php';
+include 'controler/signUp.php';
+include 'controler/translation.php';
+
 try{
      if (isset($_GET['action'])) {
          if ($_GET['action'] == 'signin') {

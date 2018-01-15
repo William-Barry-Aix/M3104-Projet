@@ -14,7 +14,7 @@
 	                    <li class="nav-item py-1">	                        
 	                        <a class="nav-link px-3" href="index.php?action=signin"><?= _("Sign in") ?></a>
 	                    </li>
-                        <?php endif; ?>
+                      <?php endif; ?>
 	                    <li class="nav-item py-1 ">
 	                        <a class="nav-link px-3" href="index.php?action=translation"><?= _("Translate") ?></a>
 	                    </li>
