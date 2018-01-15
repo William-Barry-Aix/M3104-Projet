@@ -15,14 +15,38 @@
 	                        <a class="nav-link px-3" href="index.php?action=signin">Sign in</a>
 	                    </li>
                         <?php endif; ?>
-                        <?php if (isset($_SESSION['type'])): ?>
-                            <li class="nav-item py-1">
-                                <a class="nav-link px-3" href="index.php?action=deconnexion">Deconnexion</a>
-                            </li>
-                        <?php endif; ?>
 	                    <li class="nav-item py-1 ">
 	                        <a class="nav-link px-3" href="#">Translate</a>
 	                    </li>
+                        <?php if ($_SESSION['type'] == 0): ?>
+                            <li class="nav-item dropdown py-1">
+                                <a href="#" class="nav-link px-3 dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i>Option<b class="caret"></b></a>
+                                <ul class="dropdown-menu py-0  my-0 border-0">
+                                    <li class="px-3  nav-item"><a class="nav-link" href="#">Compte</a></li>
+                                    <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=deconnexion">Deconnexion</a></li>
+                                </ul>
+                            </li>
+                        <?php endif; ?>
+                        <?php if ($_SESSION['type'] == 1): ?>
+                            <li class="nav-item dropdown py-1">
+                                <a href="#" class="nav-link px-3 dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i>Option<b class="caret"></b></a>
+                                <ul class="dropdown-menu py-0  my-0 border-0">
+                                    <li class="px-3  nav-item"><a class="nav-link" href="#">Compte</a></li>
+                                    <li class="px-3  nav-item"><a class="nav-link" href="#">Ajouter Mot</a></li>
+                                    <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=deconnexion">Deconnexion</a></li>
+                                </ul>
+                            </li>
+                        <?php endif; ?>
+                        <?php if ($_SESSION['type'] == 2): ?>
+                            <li class="nav-item dropdown py-1">
+                                <a href="#" class="nav-link px-3 dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i>Option<b class="caret"></b></a>
+                                <ul class="dropdown-menu py-0  my-0 border-0">
+                                    <li class="px-3  nav-item"><a class="nav-link" href="#">Compte</a></li>
+                                    <li class="px-3  nav-item"><a class="nav-link" href="#">Gestion Site</a></li>
+                                    <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=deconnexion">Deconnexion</a></li>
+                                </ul>
+                            </li>
+                        <?php endif; ?>
 	                    <li class="nav-item dropdown py-1">
 							<a href="#" class="nav-link px-3 dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i>Lang<b class="caret"></b></a>
 							<ul class="dropdown-menu py-0  my-0 border-0">
