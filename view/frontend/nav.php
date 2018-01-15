@@ -16,7 +16,7 @@
 	                    </li>
                         <?php endif; ?>
 	                    <li class="nav-item py-1 ">
-	                        <a class="nav-link px-3" href="#"><?= _("Translate") ?></a>
+	                        <a class="nav-link px-3" href="index.php?action=translation"><?= _("Translate") ?></a>
 	                    </li>
                         <?php if ($_SESSION['type'] == 0): ?>
                             <li class="nav-item dropdown py-1">
