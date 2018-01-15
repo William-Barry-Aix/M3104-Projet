@@ -53,7 +53,7 @@
 								<li class="px-3  nav-item"><a class="nav-link" href="#">Ang</a></li>
 							</ul>
 						</li>
-	                </ul>                
+                    </ul>
 	            </div>
         </nav>
 <?php $nav = ob_get_clean(); ?>
