@@ -6,7 +6,7 @@
                 <div class="form-group d-block">
                     <label for="exampleInputEmail1">Email address</label>
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                    <small id="emailHelp" class="form-text text-muted">.</small>
+                    <small id="emailHelp" class="form-text text-muted"></small>
                 </div>
             </div>
             <div class="row">
