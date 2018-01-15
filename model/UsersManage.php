@@ -45,9 +45,6 @@ class UsersManage extends DbConnect
             echo 'Requête : ' . $query . '<br/>';
             exit();
         }
-        if ( $dbResult == $password ){
-
-        }
         else{
             $rep = mysqli_fetch_assoc($dbResult);
             session_start();
