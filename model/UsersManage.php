@@ -55,7 +55,7 @@ class UsersManage extends DbConnect
     public function changeMdp($email,$newpassword,$password)
     {
         $dbLink = $this->dbConnect();
-        $query = $sql = "UPDATE Users SET MDP='$newpassword' WHERE EMAIL = '$email' AND MDP = '$password'";
+        $query = "UPDATE Users SET MDP ='$newpassword' WHERE EMAIL = '$email' AND MDP = '$password'";
         if (!($dbResult = mysqli_query($dbLink, $query))) {
             echo 'Erreur dans requête<br />';
             // Affiche le type d'erreur.
@@ -67,7 +67,7 @@ class UsersManage extends DbConnect
     }
     public function setRandMdp($email,$newpassword){
         $dbLink = $this->dbConnect();
-        $query = $sql = "UPDATE Users SET MDP='$newpassword' WHERE EMAIL = '$email'";
+        $query = "UPDATE Users SET MDP='$newpassword' WHERE EMAIL = '$email'";
         if (!($dbResult = mysqli_query($dbLink, $query))) {
             echo 'Erreur dans requête<br />';
             // Affiche le type d'erreur.
