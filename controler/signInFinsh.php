@@ -8,17 +8,18 @@
 include ('model/UsersManage.php');
 class signInFinsh
 {
-    function signInFinish(){
-        $this->signInSQL();
-        $home = new Home();
-        $home->home();
+    public function __construct()
+    {
+
     }
-    function signInSQL(){
+
+    public function signInFinish(){
         $user = new UsersManage();
-
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-
-        $user->getUser($email,$password);
+        if (isset($_POST['email']) && isset($_POST['password'])) {
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $user->getUser($email, $password);
+            header("Location: index.php");
+        }
     }
 }
