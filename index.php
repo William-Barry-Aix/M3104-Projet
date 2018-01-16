@@ -7,6 +7,7 @@ include 'controler/signIn.php';
 include 'controler/signInFinsh.php';
 include 'controler/signUp.php';
 include 'controler/translation.php';
+include 'controler/mdpChange.php';
 
 try{
      if (isset($_GET['action'])) {
@@ -38,7 +39,12 @@ try{
          if ($_GET['action'] ==  'translation') {
              $translation = new translation();
          }
-
+         if ($_GET['action'] ==  'passwordChange') {
+             $mdpChange = new mdpChange();
+         }
+         if ($_GET['action'] ==  'reinitMdp') {
+             $reinitMdp = new reinitMdp();
+         }
      }else {
          $home = new Home();
      }
