@@ -26,7 +26,9 @@
             </div>
         </form>
     </div>
-    <button type="button" action="index.php?action=reinitMdp">Mot de passe oublié ?</button>
+    <form method="get" action="index.php?action=goToFormReinit">
+        <button>Mot de passe oublié ?</button>
+    </form>
 <?php $content = ob_get_clean(); ?>
 <?php require('template.php');
 
