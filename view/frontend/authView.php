@@ -23,10 +23,11 @@
             </div>
             <div class="row">
                 <button type="submit" class="btn btn-primary">Submit</button>
+                <a href="index.php?action=reinitMdp" class="btn btn-info" role="button">Mot de passe oublié ?</a>
             </div>
         </form>
     </div>
-    <button type="button" action="index.php?action=reinitMdp">Mot de passe oublié ?</button>
+
 <?php $content = ob_get_clean(); ?>
 <?php require('template.php');
 
