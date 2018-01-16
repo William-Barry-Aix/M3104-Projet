@@ -7,10 +7,14 @@
  */
 class signUp
 {
-    function signUp(){
+    public function __construct()
+    {
+    }
+
+    public function signUp(){
         require ('view/frontend/signUpView.php');
     }
-    function signUpRegister(){
+    public function signUpRegister(){
         $user = new UsersManage();
 
         $nom = $_POST['nom'];

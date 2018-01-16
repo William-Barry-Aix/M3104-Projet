@@ -12,7 +12,6 @@ try{
      if (isset($_GET['action'])) {
          if ($_GET['action'] == 'signin') {
              $signin = new signin();
-             $signin->signIn();
         }
          if ($_GET['action'] ==  'signinfinish') {
              $signinFinish = new signInFinsh();
@@ -32,22 +31,16 @@ try{
          }
          if ($_GET['action'] ==  'compte') {
              $compte = new compte();
-             $compte->compte();
          }
          if ($_GET['action'] ==  'gererSite') {
              $GestionSite = new gestionSite();
-             $GestionSite->gestionSite();
          }
          if ($_GET['action'] ==  'translation') {
              $translation = new translation();
-             $translation->translation();
          }
 
-     }
-
-     else {
+     }else {
          $home = new Home();
-         $home->home();
      }
 }catch (Exception $e){
     echo 'Erreur : ' . $e->getMessage();

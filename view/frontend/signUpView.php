@@ -1,12 +1,13 @@
 
-<?php $title = SignUp ?>
-<?php ob_start();
-if ($_SESSION['mdpErreur'] == 'true'){
-    ?><p>Mot de passe different<p>
-    <?php
-    $_SESSION = array();
-}
-?>
+<?php $title = 'SignUp' ?>
+<?php
+if (isset($_SESSION['mdpErreur'])){
+    if ($_SESSION['mdpErreur'] == 'true'){
+        echo('<p>Mot de passe different<p>');
+        $_SESSION = array();
+        }
+    }
+ob_start();?>
 
 <form action="index.php?action=signUpRegister" method="post">
     Nom<input type="text" name="nom"/><br/>
