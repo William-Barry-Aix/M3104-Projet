@@ -19,7 +19,7 @@ class mdpChange
 
             $user->changeMdp($email,$newMdp,$mdp);
 
-            require ('index.php');
+            require ('view/frontend/homeView.php');
         }
         else {
             $_SESSION['changeMdpError'] = 'true' ;

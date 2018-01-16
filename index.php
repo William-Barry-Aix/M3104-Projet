@@ -8,6 +8,9 @@ include 'controler/signInFinsh.php';
 include 'controler/signUp.php';
 include 'controler/translation.php';
 include 'controler/mdpChange.php';
+include 'controler/reinitMdp.php';
+include 'controler/goToFormReinit.php';
+
 
 try{
     if (isset($_GET['action'])) {
@@ -48,7 +51,9 @@ try{
         if ($_GET['action'] ==  'goToFormReinit') {
             $goToFormReinit = new goToFormReinit();
         }
-
+        if ($_GET['action'] ==  'goHome') {
+            $home = new Home();
+        }
     }else {
         $home = new Home();
     }
