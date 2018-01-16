@@ -35,7 +35,7 @@ class signUp
         $message = 'Voici vos identifiants d\'inscription :' . PHP_EOL;
         $message .= 'Email : ' . $email . PHP_EOL;
         $message .= 'Mot de passe : ' . PHP_EOL . $password;
-        mail($email,"Tp2",$message);
+        mail($email,"Creation de votre compte",$message);
         require ('view/frontend/signUpFinishView.php');
     }
 }

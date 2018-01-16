@@ -42,7 +42,9 @@ try{
          if ($_GET['action'] ==  'passwordChange') {
              $mdpChange = new mdpChange();
          }
-
+         if ($_GET['action'] ==  'reinitMdp') {
+             $reinitMdp = new reinitMdp();
+         }
      }else {
          $home = new Home();
      }
