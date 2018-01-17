@@ -4,23 +4,23 @@
     <form method="post"action="translation">
         <div class="form-group">
             <div class="row">
-                <div class="col-5">
-                    <label for="exampleFormControlTextarea1"><?= _("Text to translate"); ?></label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+                <div class="col">
+                    <div class="col">
+                        <label for="exampleFormControlTextarea1"><?= _("Text to translate"); ?></label>
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
                 </div>
-                <div class="col-2">
-                </div>
-                <div class="col-5">
+
+                <div class="offset-2 col">
                     <label for="exampleFormControlTextarea1"><?= _("Text translated"); ?></label>
-                    <textarea class = "form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+                    <textarea class = "form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                 </div>
             </div>
         </div>
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary"><?= _("Translate !") ?></button>
     </form>
 <?php $content = ob_get_clean(); ?>
 <?php require('template.php');
