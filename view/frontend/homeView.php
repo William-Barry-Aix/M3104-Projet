@@ -1,4 +1,9 @@
-<?php $title = 'Translator'; ?>
+<?php $title = 'Translator' ?>
+<?php $welcome = "";
+if (isset($_SESSION['nom']))
+{
+    $welcome = '<h1>Welcome ' . $_SESSION['nom']. '</h1>';
+}?>
 <?php ob_start(); ?>
     <section id="description">
         <div class="container-fluid">
@@ -8,6 +13,7 @@
                     <p class="lead">Here you can translate everything you need thanks to other members</p>
                 </div>
             </div>
+        <?= $welcome ?>
         </div>
     </section>
 <?php $content = ob_get_clean(); ?>

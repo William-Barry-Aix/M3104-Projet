@@ -20,7 +20,6 @@
                 </div>
             </div>
         </div>
-
         <button type="submit" class="btn btn-primary"><?= _("Translate !") ?></button>
     </form>
 <?php $content = ob_get_clean(); ?>

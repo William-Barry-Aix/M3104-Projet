@@ -1,3 +1,12 @@
+<?php session_start(); ?>
+<?php
+$lang='fr_FR';
+$textdomain = 'messages';
+putenv("LANGUAGE=$lang" );
+setlocale(LC_ALL, $lang);
+bindtextdomain($textdomain, 'translation');
+textdomain($textdomain);
+?>
 <?php require('nav.php');?>
 <!DOCTYPE html>
 <html lang="en">
