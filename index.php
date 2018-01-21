@@ -45,6 +45,9 @@ try{
          if ($_GET['action'] ==  'reinitMdp') {
              $reinitMdp = new reinitMdp();
          }
+         if ($_GET['action'] == 'translationQuery') {
+             $onGoingTranslation = new translationQuery();
+         }
      }else {
          $home = new Home();
      }

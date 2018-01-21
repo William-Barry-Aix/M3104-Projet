@@ -1,7 +1,7 @@
 <?php $title = "Translate" ?>
 <?php ob_start(); ?>
     <div class="container"
-    <form method="post"action="translation">
+    <form method="post"action="index.php?action=translationQuery">
         <div class="form-group">
             <div class="row">
                 <div class="col">
