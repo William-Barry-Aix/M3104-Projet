@@ -9,7 +9,7 @@
 class translationQuery
 {
     public function translate() {
-        require('view/frontend/translationDone.php');
+       header("Location : translationDone.php");
     }
 
     public function addTranslationToSession() {
@@ -30,7 +30,7 @@ class translationQuery
                 $to = "US";
             }
 
-            $result = $translation->getTranslation($from, $to, $textToTranslate)
+            $result = $translation->getTranslation($from, $to, $textToTranslate);
             if($result) {
                 $_SESSION["textTranslated"] = $result;
             }
