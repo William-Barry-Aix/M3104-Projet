@@ -12,15 +12,23 @@
                     <div class="col">
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
-                </div>
+                    <div class="w-100"></div>
+                    <div class="col">
+                        <label for="exampleFormControlSelect2">Translation ?</label>
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col">
+                        <select multiple class="form-control" id="exampleFormControlSelect2">
+                            <option>English => French</option>
+                            <option>French => English</option>
+                        </select>
+                    </div>
 
-                <div class="offset-2 col">
-                    <label for="exampleFormControlTextarea1"><?= _("Text translated"); ?></label>
-                    <textarea class = "form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                 </div>
             </div>
         </div>
         <button type="submit" class="btn btn-primary"><?= _("Translate !") ?></button>
     </form>
+    </div>
 <?php $content = ob_get_clean(); ?>
 <?php require('template.php');
