@@ -47,6 +47,8 @@ try{
          }
          if ($_GET['action'] == 'translationQuery') {
              $onGoingTranslation = new translationQuery();
+             $onGoingTranslation->addTranslationToSession();
+             $onGoingTranslation->translate();
          }
      }else {
          $home = new Home();

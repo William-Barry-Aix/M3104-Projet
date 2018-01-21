@@ -10,7 +10,7 @@
                     </div>
                     <div class="w-100"></div>
                     <div class="col">
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="textToTranslate"></textarea>
                     </div>
                     <div class="w-100"></div>
                     <div class="col">
@@ -18,9 +18,9 @@
                     </div>
                     <div class="w-100"></div>
                     <div class="col">
-                        <select multiple class="form-control" id="exampleFormControlSelect2">
-                            <option>English => French</option>
-                            <option>French => English</option>
+                        <select multiple class="form-control" id="exampleFormControlSelect2" name="fromAndTo">
+                            <option value="usToFr">English => French</option> //mettre value
+                            <option value="frToUs">French => English</option>
                         </select>
                     </div>
 
