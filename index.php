@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include 'controler/Home.php';
 include 'controler/compte.php';
 include 'controler/deconnexion.php';
