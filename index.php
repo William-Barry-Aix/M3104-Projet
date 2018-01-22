@@ -14,6 +14,12 @@ try{
          if ($_GET['action'] == 'signin') {
              $signin = new signin();
         }
+
+         if ($_GET['action'] ==  'mesDemandes') {
+             $mesDemandes = new mesDemandes();
+             $mesDemandes->mesDemandes();
+         }
+
          if ($_GET['action'] ==  'signinfinish') {
              $signinFinish = new signInFinsh();
              $signinFinish->signInFinish();
