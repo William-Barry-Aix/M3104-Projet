@@ -2,11 +2,16 @@
 <?php $title = 'SignUp' ?>
 <?php
 if (isset($_SESSION['mdpErreur'])){
-    if ($_SESSION['mdpErreur'] == 'true'){
+    if ($_SESSION['mdpErreur']){
         echo('<p>Mot de passe different<p>');
-        $_SESSION = array();
-        }
+        $_SESSION['mdpErreur']=false;
     }
+}
+
+if (isset($_SESSION['champsVide']) && $_SESSION['champsVide']){
+    echo('<p>Veuillez remplir tout les champs<p>');
+    $_SESSION['champsVide']=false;
+}
 ob_start();?>
 
 <form action="index.php?action=signUpRegister" method="post">
