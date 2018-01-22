@@ -5,15 +5,19 @@
  * Date: 21/01/2018
  * Time: 08:25
  */
+include 'model/TranslationManage.php';
 
 class translationQuery
 {
-    public function translate() {
-       header("Location : translationDone.php");
+    public function __construct()
+    {
+
     }
 
+
     public function addTranslationToSession() {
-        if(session_status() ==  PHP_SESSION_ACTIVE) {
+
+        //if(isset($_SESSION['type'])) {
 
             $translation = new TranslationManage();
 
@@ -30,11 +34,15 @@ class translationQuery
                 $to = "US";
             }
 
-            $result = $translation->getTranslation($from, $to, $textToTranslate);
+            /*$result = $translation->getTranslation($from, $to, $textToTranslate);
             if($result) {
-                $_SESSION["textTranslated"] = $result;
-            }
+                $_SESSION["textTranslated"] = $result["reponseSQL"];
+                $_SESSION["requeteSQL"] = $result["query"];
+            }*/
 
-        }
+            $translation->getTranslation($from, $to, $textToTranslate);
+            require('view/frontend/translationDone.php');
+
+        //}
     }
 }

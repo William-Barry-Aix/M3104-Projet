@@ -8,6 +8,7 @@ include 'controler/signInFinsh.php';
 include 'controler/signUp.php';
 include 'controler/translation.php';
 include 'controler/mdpChange.php';
+include 'controler/translationQuery.php';
 
 try{
      if (isset($_GET['action'])) {
@@ -48,7 +49,6 @@ try{
          if ($_GET['action'] == 'translationQuery') {
              $onGoingTranslation = new translationQuery();
              $onGoingTranslation->addTranslationToSession();
-             $onGoingTranslation->translate();
          }
      }else {
          $home = new Home();
