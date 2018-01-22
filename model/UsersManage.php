@@ -18,21 +18,25 @@ class UsersManage extends DbConnect
     {
         $dbLink = $this->dbConnect();
 
-        $request = $dbLink->prepare('INSERT INTO Users (NOM,PRENOM,TELEPHONE,MAIL,MDP,DATE) 
-                                              VALUES(:nom,:prenom,:tel,:email,:password,:today)');
+        $request = $dbLink->prepare("INSERT INTO Users (NOM,PRENOM,TELEPHONE,EMAIL,MDP,DATE) 
+                                              VALUES(:nom,:prenom,:tel,:email,:password,:today)");
         $request->bindValue(':nom', $nom, PDO::PARAM_STR);
         $request->bindValue(':prenom', $prenom, PDO::PARAM_STR);
         $request->bindValue(':tel', $tel, PDO::PARAM_INT);
         $request->bindValue(':email', $email, PDO::PARAM_STR);
         $request->bindValue(':password', $password, PDO::PARAM_STR);
         $request->bindValue(':today', $today, PDO::PARAM_STR);
-        $request->execute();
+        if (!$request->execute()) {
+            echo 'Erreur : ' , $request->errorInfo(), PHP_EOL;
+            exit();
+        }
+
     }
     public function getUser($email,$password)
     {
         $dbLink = $this->dbConnect();
 
-        $request = $dbLink->prepare('SELECT TYPECOMPTE,PRENOM 
+        $request = $dbLink->prepare('SELECT TYPECOMPTE,PRENOM,EMAIL 
                                                FROM Users
                                                WHERE EMAIL = :email AND MDP = :password');
         $request->bindValue(':email', $email, PDO::PARAM_STR);
@@ -46,11 +50,7 @@ class UsersManage extends DbConnect
                 $_SESSION['type'] = $result->TYPECOMPTE;
                 $_SESSION['prenom'] = $result->PRENOM;
                 $_SESSION['email'] = $result->EMAIL;
-                $connection = 'true';
-            } else {
-                $connection = 'false';
             }
-            return $connection;
         }
         catch (PDOException $e){
             echo 'Erreur : ' , $e->getMessage(), PHP_EOL;
@@ -69,7 +69,10 @@ class UsersManage extends DbConnect
         $request->bindValue(':email' , $email , PDO::PARAM_STR);
         $request->bindValue(':password', $password , PDO::PARAM_STR);
 
-        $request->execute();
+        if (!$request->execute()) {
+            echo 'Erreur : ' , $request->errorInfo(), PHP_EOL;
+            exit();
+        }
     }
 
     public function setRandMdp($email,$newpassword){
