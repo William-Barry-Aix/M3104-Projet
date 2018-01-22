@@ -36,7 +36,7 @@ class UsersManage extends DbConnect
     {
         $dbLink = $this->dbConnect();
 
-        $request = $dbLink->prepare('SELECT TYPECOMPTE,PRENOM,EMAIL 
+        $request = $dbLink->prepare('SELECT TYPECOMPTE,PRENOM 
                                                FROM Users
                                                WHERE EMAIL = :email AND MDP = :password');
         $request->bindValue(':email', $email, PDO::PARAM_STR);
@@ -46,10 +46,10 @@ class UsersManage extends DbConnect
             if ($request->rowCount()) {
                 $request->setFetchMode(PDO::FETCH_OBJ);
                 $result = $request->fetch();
-                session_start();
+
                 $_SESSION['type'] = $result->TYPECOMPTE;
                 $_SESSION['prenom'] = $result->PRENOM;
-                $_SESSION['email'] = $result->EMAIL;
+                $_SESSION['email'] = $email;
             }
         }
         catch (PDOException $e){
@@ -68,6 +68,8 @@ class UsersManage extends DbConnect
         $request->bindValue(':newpassword' , $newpassword , PDO::PARAM_STR);
         $request->bindValue(':email' , $email , PDO::PARAM_STR);
         $request->bindValue(':password', $password , PDO::PARAM_STR);
+
+        var_dump($email);
 
         if (!$request->execute()) {
             echo 'Erreur : ' , $request->errorInfo(), PHP_EOL;
