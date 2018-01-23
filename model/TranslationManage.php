@@ -12,8 +12,7 @@ class TranslationManage extends dbConnect {
 
         $dbLink = $this->dbConnect();
 
-        $query = 'SELECT ' . $to . ' FROM Translation WHERE ' . $from . ' = "'. $textToTranslate .'"';
-        echo $query;
+        $query = 'SELECT TEXT FROM Sentences WHERE LANGUAGE = "' . $to . '" AND ID_FAMILY IN (SELECT ID_FAMILY FROM Sentences WHERE LANGUAGE = "' . $from . ' " AND TEXT = "' . $textToTranslate . '")';
         if (!($dbResult = mysqli_query($dbLink, $query))) {
             echo 'Erreur dans requête<br />';
             // Affiche le type d'erreur.
@@ -26,9 +25,9 @@ class TranslationManage extends dbConnect {
 
 
 
+
             $rep = mysqli_fetch_assoc($dbResult);
-            $_SESSION["textTranslated"] = $rep[$to];
-            $_SESSION["requeteSQL"] = $query;
+            $_SESSION["textTranslated"] = $rep["TEXT"];
         }
 
     }
