@@ -1,11 +1,9 @@
 <?php session_start(); ?>
 <?php
-$lang='fr_FR';
-$textdomain = 'messages';
-putenv("LANGUAGE=$lang" );
-setlocale(LC_ALL, $lang);
-bindtextdomain($textdomain, 'translation');
-textdomain($textdomain);
+if (!isset($_SESSION['lang']))
+    $_SESSION['lang'] = 'FR';
+$loadTrad = new TranslationManage();
+$_SESSION['tradList'] = $loadTrad->getTranslations($_SESSION['lang']);
 ?>
 <?php require('nav.php');?>
 <!DOCTYPE html>
