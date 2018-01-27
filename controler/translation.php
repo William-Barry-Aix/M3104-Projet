@@ -54,10 +54,8 @@ class translation
             $from = $_POST["lang1"];
             $to = $_POST["lang2"];
             //manque méthode de sugestion
-            //$translation = $translation->addSuggestion($from, $to, $original);
+            $translation = $translation->addTranslation($from, $to, $original);
 
-            header('Location: index.php?action=translation&text1=' . $translation['text1']
-                . '&text2=' . $translation['text2']);
         }
     }
 }
