@@ -15,8 +15,6 @@ class signUp
         require ('view/frontend/signUpView.php');
     }
     public function signUpRegister(){
-
-        $error= false;
         $user = new UsersManage();
 
         $nom = $_POST['nom'];
@@ -28,20 +26,10 @@ class signUp
         $today = date('Y-m-d');
 
         if ( $password != $verifPassWord){
-            $_SESSION['mdpErreur'] = true;
-            $error=true;
+            $_SESSION['mdpErreur'] = "true";
+            require ('view/frontend/signUpView.php');
         }
 
-        if ( $nom=="" || $prenom=="" || $email=="" || $password=="" || $verifPassWord=="" || $tel=="" ){
-
-            $_SESSION['champsVide'] = true;
-            $error = true;
-
-        }
-        if ($error==true){
-            require('view/frontend/signUpView.php');
-            exit;
-        }
         $user->addUser($nom,$prenom,$email,$password,$tel,$today);
 
         $message = 'Voici vos identifiants d\'inscription :' . PHP_EOL;

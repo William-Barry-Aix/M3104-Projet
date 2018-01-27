@@ -10,7 +10,7 @@ class reinitMdp
 {
     function reinitMdp(){
         $randomMdp = rand(1000000,9999999);
-        $email = $_POST['email'];
+        $email = $_SESSION['email'];
 
         $user = new UsersManage();
         $user->setRandMdp($email,$randomMdp);
