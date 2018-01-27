@@ -8,14 +8,14 @@
 	                <ul class="nav nav-pills navbar-nav ml-auto ">
                         <?php if (!isset($_SESSION['type'])): ?>
                             <li class="nav-item py-1">
-                                <a class="nav-link px-3" href="index.php?action=signup"><?= _("Sign up")?></a>
+                                <a class="nav-link px-3" href="index.php?action=signup"><?= $tradList["Sign up"]?></a>
                             </li>
                             <li class="nav-item py-1">
-                                <a class="nav-link px-3" href="index.php?action=signin"><?= _("Sign in") ?></a>
+                                <a class="nav-link px-3" href="index.php?action=signin"><?= $tradList["Sign in"] ?></a>
                             </li>
                         <?php endif; ?>
 	                    <li class="nav-item py-1 ">
-                            <a class="nav-link px-3" href="index.php?action=translation"><?= _("Translate") ?></a>
+                            <a class="nav-link px-3" href="index.php?action=translation"><?= $tradList["Translate"] ?></a>
 	                    </li>
                         <?php if (isset($_SESSION['type'])): ?>
                             <?php if ($_SESSION['type'] == 0): ?>
@@ -51,8 +51,14 @@
 	                    <li class="nav-item dropdown py-1">
 							<a href="#" class="nav-link px-3 dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i><?= _("Lang") ?><b class="caret"></b></a>
 							<ul class="dropdown-menu py-0  my-0 border-0">
-								<li class="px-3  nav-item"><a class="nav-link" href="#">Fra</a></li>
-								<li class="px-3  nav-item"><a class="nav-link" href="#">Ang</a></li>
+                                <?php
+                                $before = '';
+                                if (isset($_GET['action'])){
+                                    $before = $_GET['action'];
+                                }
+                                ?>
+								<li class="px-3  nav-item"><a class="nav-link" href="index.php?action=swap&lang=FR&before=<?= $before ?>">FR</a></li>
+								<li class="px-3  nav-item"><a class="nav-link" href="index.php?action=swap&lang=US&before=<?= $before ?>">US</a></li>
 							</ul>
 						</li>
                     </ul>

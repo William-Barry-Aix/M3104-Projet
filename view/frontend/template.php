@@ -1,12 +1,5 @@
 <?php session_start(); ?>
-<?php
-$lang='fr_FR';
-$textdomain = 'messages';
-putenv("LANGUAGE=$lang" );
-setlocale(LC_ALL, $lang);
-bindtextdomain($textdomain, 'translation');
-textdomain($textdomain);
-?>
+<?php require_once('view/frontend/loadTrad.php')?>
 <?php require('nav.php');?>
 <!DOCTYPE html>
 <html lang="en">
