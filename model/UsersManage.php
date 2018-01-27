@@ -69,7 +69,6 @@ class UsersManage extends DbConnect
         $request->bindValue(':email' , $email , PDO::PARAM_STR);
         $request->bindValue(':password', $password , PDO::PARAM_STR);
 
-        var_dump($email);
 
         if (!$request->execute()) {
             echo 'Erreur : ' , $request->errorInfo(), PHP_EOL;
@@ -86,5 +85,9 @@ class UsersManage extends DbConnect
         $request->bindValue(':password', $newpassword , PDO::PARAM_STR);
         $request->bindValue(':email', $email , PDO::PARAM_STR);
 
+        if (!$request->execute()) {
+            echo 'Erreur : ' , $request->errorInfo(), PHP_EOL;
+            exit();
+        }
     }
 }
