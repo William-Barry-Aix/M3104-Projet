@@ -9,6 +9,7 @@ include 'controler/signUp.php';
 include 'controler/translation.php';
 include 'controler/mdpChange.php';
 include 'controler/translationQuery.php';
+include 'controler/translationAsker.php';
 
 try{
      if (isset($_GET['action'])) {
@@ -49,6 +50,11 @@ try{
          if ($_GET['action'] == 'translationQuery') {
              $onGoingTranslation = new translationQuery();
              $onGoingTranslation->addTranslationToSession();
+         }
+         if ($_GET['action'] == 'askTrans') {
+             $ask = new TranslationAsker();
+             $ask->send();
+
          }
      }else {
          $home = new Home();

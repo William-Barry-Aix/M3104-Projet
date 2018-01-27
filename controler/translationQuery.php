@@ -34,6 +34,9 @@ class translationQuery
                 $to = "US";
             }
 
+            $_SESSION["to"] = $to;
+            $_SESSION["from"] = $from;
+            $_SESSION["textToTranslate"] = $textToTranslate;
             /*$result = $translation->getTranslation($from, $to, $textToTranslate);
             if($result) {
                 $_SESSION["textTranslated"] = $result["reponseSQL"];

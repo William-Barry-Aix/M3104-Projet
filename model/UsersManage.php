@@ -46,6 +46,7 @@ class UsersManage extends DbConnect
         else{
             $rep = mysqli_fetch_assoc($dbResult);
             session_start();
+            $_SESSION['id_user'] = $rep['ID'];
             $_SESSION['type'] = $rep['TYPECOMPTE'];
             $_SESSION['prenom'] = $rep['PRENOM'];
             $_SESSION['email'] = $email;
