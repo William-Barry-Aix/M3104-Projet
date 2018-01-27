@@ -34,7 +34,6 @@ class UsersManage extends DbConnect
     {
         $dbLink = $this->dbConnect();
 
-
         $query = 'SELECT `TYPECOMPTE`,`PRENOM` FROM `Users` WHERE EMAIL = "'. $email .'" AND MDP = "'.$password.'"';
         if (!($dbResult = mysqli_query($dbLink, $query))) {
             echo 'Erreur dans requête<br />';
@@ -52,6 +51,7 @@ class UsersManage extends DbConnect
             $_SESSION['prenom'] = $rep['PRENOM'];
             $_SESSION['email'] = $email;
         }
+
     }
     public function changeMdp($email,$newpassword,$password)
     {
