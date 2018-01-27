@@ -50,20 +50,18 @@ class UsersManage extends DbConnect
                 $_SESSION['type'] = $result->TYPECOMPTE;
                 $_SESSION['prenom'] = $result->PRENOM;
                 $_SESSION['email'] = $result->EMAIL;
+            } else {
+                $rep = mysqli_fetch_assoc($dbResult);
+                session_start();
+                $_SESSION['id_user'] = $rep['ID'];
+                $_SESSION['type'] = $rep['TYPECOMPTE'];
+                $_SESSION['prenom'] = $rep['PRENOM'];
+                $_SESSION['email'] = $email;
             }
-        }
-        else{
-            $rep = mysqli_fetch_assoc($dbResult);
-            session_start();
-            $_SESSION['id_user'] = $rep['ID'];
-            $_SESSION['type'] = $rep['TYPECOMPTE'];
-            $_SESSION['prenom'] = $rep['PRENOM'];
-            $_SESSION['email'] = $email;
-        }
-        catch (PDOException $e){
-            echo 'Erreur : ' , $e->getMessage(), PHP_EOL;
-            exit();
-        }
+        }catch (PDOException $e){
+                echo 'Erreur : ', $e->getMessage(), PHP_EOL;
+                exit();
+            }
     }
 
     public function changeMdp($email,$newpassword,$password)
