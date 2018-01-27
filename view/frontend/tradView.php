@@ -30,7 +30,7 @@
                             <option value="FR">FR</option>
                         </select>
 
-                            <textarea class="form-control w-100" id="original" rows="3" name="translated" <?= $readable ?>><?= $trad['text2']?></textarea>
+                            <textarea class="form-control w-100" id="original" rows="3" name="translated" readonly><?= $trad['text2']?></textarea>
 
                     </div>
                 </div>

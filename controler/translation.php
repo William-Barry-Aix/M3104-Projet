@@ -49,7 +49,6 @@ class translation
     }
     public function suggest(){
         $translation = new TranslationManage();
-        echo $_POST['option'];
         if(isset($_POST["original"]) && isset($_POST["translated"]) && isset($_POST["lang1"]) && isset($_POST["lang2"])) {
             $original = $_POST["original"];
             $from = $_POST["lang1"];
@@ -58,7 +57,7 @@ class translation
             //$translation = $translation->addSuggestion($from, $to, $original);
 
             header('Location: index.php?action=translation&text1=' . $translation['text1']
-                . '&text2=' . $translation['text2'].'&option='.$_POST['option']);
+                . '&text2=' . $translation['text2']);
         }
     }
 }
