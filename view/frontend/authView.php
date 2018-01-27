@@ -23,7 +23,7 @@
             </div>
             <div class="row">
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <a href="index.php?action=reinitMdp" class="btn btn-info" role="button">Mot de passe oublié ?</a>
+                <a href="index.php?action=goToFormReinit" class="btn btn-info" role="button">Mot de passe oublié ?</a>
             </div>
         </form>
     </div>
