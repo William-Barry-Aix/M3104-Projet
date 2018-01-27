@@ -1,5 +1,5 @@
 <?php
-class DbConnect
+class dbConnect
 {
     function __construct()
     {
@@ -14,6 +14,5 @@ class DbConnect
         } catch (Exception $e) {
             die('Erreur : ' . $e->getMessage());
         }
-
     }
 }

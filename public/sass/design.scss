@@ -9,19 +9,19 @@
 
 $nav-link-disabled-color:           $blue;
 $navbar-dark-toggler-border-color : transparent;
-$navbar-dark-toggler-icon-bg : url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(149, 88, 8, 0.75)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+$navbar-dark-toggler-icon-bg : 		url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(149, 88, 8, 0.75)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 $body-bg: #141519;
-$body-color: white;
+$body-color: 						white;
 
 
-
-$dropdown-min-width: 0;
-$dropdown-bg:	$dark;
+$dropdown-min-width: 				0;
+$dropdown-bg:						$dark;
 $jumbotron-bg: 						rgba(149, 88, 8, 0.24);
 $navbar-padding-y:                  0;
 $navbar-padding-x:                  0;
 $navbar-toggler-padding-y:			9px;
 $navbar-toggler-padding-x:			10px;
+
 .navbar-brand {
 	padding: 15px 15px;
 }
@@ -90,6 +90,8 @@ $dropdown-bg: rgba(20,21,25,0.5);
 @import "node_modules/bootstrap/scss/dropdown";
 @import "node_modules/bootstrap/scss/jumbotron";
 @import "node_modules/bootstrap/scss/nav";
+@import "node_modules/bootstrap/scss/forms";
+@import "node_modules/bootstrap/scss/jumbotron";
 
 /*
 @import "tables";
