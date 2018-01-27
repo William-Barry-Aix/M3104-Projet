@@ -8,14 +8,14 @@
 	                <ul class="nav nav-pills navbar-nav ml-auto ">
                         <?php if (!isset($_SESSION['type'])): ?>
                             <li class="nav-item py-1">
-                                <a class="nav-link px-3" href="index.php?action=signup"><?= $_SESSION['tradList']["Sign up"]?></a>
+                                <a class="nav-link px-3" href="index.php?action=signup"><?= $tradList["Sign up"]?></a>
                             </li>
                             <li class="nav-item py-1">
-                                <a class="nav-link px-3" href="index.php?action=signin"><?= $_SESSION['tradList']["Sign in"] ?></a>
+                                <a class="nav-link px-3" href="index.php?action=signin"><?= $tradList["Sign in"] ?></a>
                             </li>
                         <?php endif; ?>
 	                    <li class="nav-item py-1 ">
-                            <a class="nav-link px-3" href="index.php?action=translation"><?= $_SESSION['tradList']["Translate"] ?></a>
+                            <a class="nav-link px-3" href="index.php?action=translation"><?= $tradList["Translate"] ?></a>
 	                    </li>
                         <?php if (isset($_SESSION['type'])): ?>
                             <?php if ($_SESSION['type'] == 0): ?>
@@ -57,8 +57,8 @@
                                     $before = $_GET['action'];
                                 }
                                 ?>
-								<li class="px-3  nav-item"><a class="nav-link" href="index.php?action=swap&lang=FR&before=<?= $before ?>">Fra</a></li>
-								<li class="px-3  nav-item"><a class="nav-link" href="index.php?action=swap&lang=US&before=<?= $before ?>">Ang</a></li>
+								<li class="px-3  nav-item"><a class="nav-link" href="index.php?action=swap&lang=FR&before=<?= $before ?>">FR</a></li>
+								<li class="px-3  nav-item"><a class="nav-link" href="index.php?action=swap&lang=US&before=<?= $before ?>">US</a></li>
 							</ul>
 						</li>
                     </ul>

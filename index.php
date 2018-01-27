@@ -8,14 +8,14 @@ include 'controler/signInFinsh.php';
 include 'controler/signUp.php';
 include 'controler/translation.php';
 include 'controler/mdpChange.php';
-include 'controler/translationQuery.php';
 include 'controler/SwitchLang.php';
+include 'model/TranslationManage.php';
 
 try{
      if (isset($_GET['action'])) {
          if ($_GET['action'] == 'signin') {
              $signin = new signin();
-        }
+         }
          if ($_GET['action'] ==  'signinfinish') {
              $signinFinish = new signInFinsh();
              $signinFinish->signInFinish();
@@ -40,6 +40,7 @@ try{
          }
          if ($_GET['action'] ==  'translation') {
              $translation = new translation();
+             $translation->show();
          }
          if ($_GET['action'] ==  'passwordChange') {
              $mdpChange = new mdpChange();
@@ -48,13 +49,17 @@ try{
              $reinitMdp = new reinitMdp();
          }
          if ($_GET['action'] == 'translationQuery') {
-             $onGoingTranslation = new translationQuery();
-             $onGoingTranslation->addTranslationToSession();
+             $onGoingTranslation = new translation();
+             if (isset($_POST['translate'])) {
+                 $onGoingTranslation->translate();
+             }elseif (isset($_POST['suggest'])) {
+                 $onGoingTranslation->suggest();
+             }
          }
          if ($_GET['action'] == 'swap'){
              $swap = new SwitchLang();
              $swap->swap();
-             $swap->return();
+             $swap->back();
          }
      }else {
          $home = new Home();

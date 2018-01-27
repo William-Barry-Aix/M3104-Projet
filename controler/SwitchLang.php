@@ -11,7 +11,7 @@ class SwitchLang
             $_SESSION['lang'] = $_GET['lang'];
         }
     }
-    public function return(){
+    public function back(){
         if(isset($_GET['before'])){
             if ($_GET['before'] != ''){
                 header("Location: index.php?action=".$_GET['before']);

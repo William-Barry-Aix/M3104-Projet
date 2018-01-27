@@ -1,10 +1,5 @@
 <?php session_start(); ?>
-<?php
-if (!isset($_SESSION['lang']))
-    $_SESSION['lang'] = 'FR';
-$loadTrad = new TranslationManage();
-$_SESSION['tradList'] = $loadTrad->getTranslations($_SESSION['lang']);
-?>
+<?php require_once('view/frontend/loadTrad.php')?>
 <?php require('nav.php');?>
 <!DOCTYPE html>
 <html lang="en">

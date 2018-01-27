@@ -7,24 +7,28 @@
  */
 
 class TranslationManage extends dbConnect {
-    public function getTranslation($from, $to, $textToTranslate) {
+    public function getTranslation($from, $to, $original) {
 
         $dbLink = $this->dbConnect();
 
-        $query = 'SELECT ' . $to . ' FROM Translation WHERE ' . $from . ' = "'. $textToTranslate .'"';
-        echo $query;
+        $query = "SELECT S1.TEXT AS text1, S2.TEXT AS text2"
+                ." FROM Sentences AS S1, Sentences AS S2"
+                ." WHERE S1.LANGUAGE = '$from' AND S2.LANGUAGE = '$to' AND S1.TEXT= '$original'"
+                ." AND S2.ID_Family = S1.ID_Family";
         if (!($dbResult = mysqli_query($dbLink, $query))) {
             echo 'Erreur dans requête<br />';
             // Affiche le type d'erreur.
             echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
             // Affiche la requête envoyée.
             echo 'Requête : ' . $query . '<br/>';
-            exit();
+            return '';
         }
         else{
             $rep = mysqli_fetch_assoc($dbResult);
-            $_SESSION["textTranslated"] = $rep[$to];
-            $_SESSION["requeteSQL"] = $query;
+            $trad['text1'] = $original;
+            $trad['text2'] = $rep['text2'];
+
+            return $trad;
         }
     }
     public function getTranslations($lang = 'US'){
