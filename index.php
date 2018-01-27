@@ -9,7 +9,7 @@ include 'controler/signUp.php';
 include 'controler/translation.php';
 include 'controler/mdpChange.php';
 include 'controler/translationQuery.php';
-include 'controler/translationAsker.php';
+include 'controler/TranslationAsker.php';
 
 try{
      if (isset($_GET['action'])) {
