@@ -9,7 +9,7 @@
 class TranslationManage extends dbConnect {
     public function getTranslation($from, $to, $original) {
 
-        $dbLink = $this->dbConnect();
+        $dbLink = $this->dbConnectMysqli();
 
         $query = "SELECT S1.TEXT AS text1, S2.TEXT AS text2"
                 ." FROM Sentences AS S1, Sentences AS S2"
@@ -32,7 +32,7 @@ class TranslationManage extends dbConnect {
         }
     }
     public function getTranslations($lang = 'US'){
-        $dbLink = $this->dbConnect();
+        $dbLink = $this->dbConnectMysqli();
         $query ="SELECT S1.TEXT AS text1, S2.TEXT AS text2"
                 ." FROM Sentences AS S1, Sentences AS S2"
                 ." WHERE S1.LANGUAGE = 'US' AND S2.LANGUAGE = '$lang' AND S2.ID_Family = S1.ID_Family;";
@@ -54,7 +54,7 @@ class TranslationManage extends dbConnect {
     }
     public function sendTranslation($from, $to, $textToTranslate)
     {
-        $dbLink = $this->dbConnect();
+        $dbLink = $this->dbConnectMysqli();
         $query = 'SELECT ID_FAMILY FROM Sentences WHERE TEXT = \'' . $textToTranslate . '\'';
         if (!($dbResult = mysqli_query($dbLink, $query))) {
             echo 'Erreur dans requête<br />';
@@ -114,7 +114,7 @@ class TranslationManage extends dbConnect {
     }
     public function addTranslation($from, $to, $textToTranslate){
 
-        $dbLink = $this->dbConnect();
+        $dbLink = $this->dbConnectMysqli();
         $query = "SELECT ID_FAMILY FROM Sentences WHERE TEXT = '" . $textToTranslate . "'";
         if (!($dbResult = mysqli_query($dbLink, $query))) {
             echo 'Erreur dans requête<br />';
