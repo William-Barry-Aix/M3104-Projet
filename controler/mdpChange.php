@@ -14,12 +14,12 @@ class mdpChange
         $newMdpVerif = $_POST['verifNewMdp'];
         $email = $_SESSION['email'];
 
-        if ( $newMdp == $newMdpVerif){
+        if ( $newMdp == $newMdpVerif ){
             $user = new UsersManage();
 
             $user->changeMdp($email,$newMdp,$mdp);
 
-            require ('index.php');
+            require ('view/frontend/homeView.php');
         }
         else {
             $_SESSION['changeMdpError'] = 'true' ;
