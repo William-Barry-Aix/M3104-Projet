@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="projetphpg3s3_translator@mysql-projetphpg3s3.alwaysdata.net" uuid="a31575bf-05a2-4209-980d-5b7e880a2178">
+    <data-source source="LOCAL" name="projetphpg3s3_translator@mysql-projetphpg3s3.alwaysdata.net" uuid="705bcf18-0c58-43a8-9a3c-949b82fd06f2">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>

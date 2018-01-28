@@ -120,7 +120,7 @@ class TranslationManage extends dbConnect {
         }
     }*/
 
-    public function addTranslation($from, $to, $textToTranslate)
+    public function addTranslation($from, $to, $textToTranslate, $userID)
     {
         $dbLink = $this->dbConnectMysqli();
         $query = "SELECT ID_FAMILY FROM Sentences WHERE TEXT = '" . $textToTranslate . "'";
@@ -199,7 +199,7 @@ class TranslationManage extends dbConnect {
 
         }
 
-        $query = 'INSERT INTO Translation (SOURCE_LANGUAGE, TRANSLATED_LANGUAGE, DATE, STATUS, ID_FAMILY) VALUES (\'' . $from . '\', \'' . $to . '\', \'' . date('Y-m-d') . '\', \'' . 'WAITING' . '\', \'' . $id_family . '\')';
+        $query = 'INSERT INTO Translation (SOURCE_LANGUAGE, TRANSLATED_LANGUAGE, DATE, STATUS, ID_FAMILY, IDUSER) VALUES (\'' . $from . '\', \'' . $to . '\', \'' . date('Y-m-d') . '\', \'' . 'WAITING' . '\', \'' . $id_family . '\', \'' . $userID . '\')';
         echo $query;
         if (!($dbResult = mysqli_query($dbLink, $query))) {
             echo 'Erreur dans requête<br />';
@@ -226,6 +226,32 @@ class TranslationManage extends dbConnect {
             return array();
         }
         return $list;
+    }
+
+    public function getTranslationRequestListPre()
+    {
+
+        $id = $_SESSION['userID'];
+
+        $dbLink = $this->dbConnect();
+        try {
+            $request = $dbLink->prepare("SELECT Translation.* , Sentences.*
+                                            FROM Translation
+                                            INNER JOIN Sentences ON Translation.ID_FAMILY = Sentences.ID_FAMILY
+                                            WHERE Sentences.LANGUAGE = Translation.SOURCE_LANGUAGE
+                                            AND Translation.IDUSER = :id ");
+            $request->bindValue(':id', $id);
+            $request->execute();
+            if ($request->rowCount()) {
+                $translations = $request->fetchALL();
+                return $translations;
+            }
+
+        }
+        catch (PDOException $e){
+            echo 'Erreur : ' , $e->getMessage(), PHP_EOL;
+            return array();
+        }
     }
 
     public function requestComplete($to, $text_translated, $textToTranslate, $from)

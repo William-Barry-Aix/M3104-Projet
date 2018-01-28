@@ -58,6 +58,7 @@ class Translation
             $original = $_POST["original"];
             $from = $_POST["lang1"];
             $to = $_POST["lang2"];
+            $userID = $_SESSION['userID'];
 
             if($_POST["lang1"] ==  $_POST['lang2']) {
                 header('Location: index.php?action=translation&text1='.$original
@@ -65,7 +66,7 @@ class Translation
                 return;
             }
             //manque méthode de sugestion
-            $translation = $translation->addTranslation($from, $to, $original);
+            $translation = $translation->addTranslation($from, $to, $original,$userID);
 
 
             header('Location: index.php?action=translation&text1='.$original
