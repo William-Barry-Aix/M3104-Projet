@@ -10,6 +10,7 @@ class translation
 {
     public function __construct()
     {
+
     }
 
     public function show(){

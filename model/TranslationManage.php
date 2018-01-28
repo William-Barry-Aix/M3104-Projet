@@ -6,15 +6,17 @@
  * Time: 07:20
  */
 
-class TranslationManage extends dbConnect {
-    public function getTranslation($from, $to, $original) {
+class TranslationManage extends dbConnect
+{
+    public function getTranslation($from, $to, $original)
+    {
 
         $dbLink = $this->dbConnect();
 
         $query = "SELECT S1.TEXT AS text1, S2.TEXT AS text2"
-                ." FROM Sentences AS S1, Sentences AS S2"
-                ." WHERE S1.LANGUAGE = '$from' AND S2.LANGUAGE = '$to' AND S1.TEXT= '$original'"
-                ." AND S2.ID_Family = S1.ID_Family";
+            . " FROM Sentences AS S1, Sentences AS S2"
+            . " WHERE S1.LANGUAGE = '$from' AND S2.LANGUAGE = '$to' AND S1.TEXT= '$original'"
+            . " AND S2.ID_Family = S1.ID_Family";
         if (!($dbResult = mysqli_query($dbLink, $query))) {
             echo 'Erreur dans requête<br />';
             // Affiche le type d'erreur.
@@ -22,8 +24,7 @@ class TranslationManage extends dbConnect {
             // Affiche la requête envoyée.
             echo 'Requête : ' . $query . '<br/>';
             return '';
-        }
-        else{
+        } else {
             $rep = mysqli_fetch_assoc($dbResult);
             $trad['text1'] = $original;
             $trad['text2'] = $rep['text2'];
@@ -31,11 +32,13 @@ class TranslationManage extends dbConnect {
             return $trad;
         }
     }
-    public function getTranslations($lang = 'US'){
+
+    public function getTranslations($lang = 'US')
+    {
         $dbLink = $this->dbConnect();
-        $query ="SELECT S1.TEXT AS text1, S2.TEXT AS text2"
-                ." FROM Sentences AS S1, Sentences AS S2"
-                ." WHERE S1.LANGUAGE = 'US' AND S2.LANGUAGE = '$lang' AND S2.ID_Family = S1.ID_Family;";
+        $query = "SELECT S1.TEXT AS text1, S2.TEXT AS text2"
+            . " FROM Sentences AS S1, Sentences AS S2"
+            . " WHERE S1.LANGUAGE = 'US' AND S2.LANGUAGE = '$lang' AND S2.ID_Family = S1.ID_Family;";
         if (!($dbResult = mysqli_query($dbLink, $query))) {
             echo 'Erreur dans requête<br />';
             // Affiche le type d'erreur.
@@ -43,19 +46,20 @@ class TranslationManage extends dbConnect {
             // Affiche la requête envoyée.
             echo 'Requête : ' . $query . '<br/>';
             exit();
-        }
-        else{
+        } else {
             $trads = array();
-            while ($row = mysqli_fetch_assoc($dbResult)){
+            while ($row = mysqli_fetch_assoc($dbResult)) {
                 $trads[$row['text1']] = $row['text2'];
             }
             return $trads;
         }
     }
-    public function sendTranslation($from, $to, $textToTranslate)
+
+    /*public function sendTranslation($from, $to, $textToTranslate)
     {
         $dbLink = $this->dbConnect();
         $query = 'SELECT ID_FAMILY FROM Sentences WHERE TEXT = \'' . $textToTranslate . '\'';
+        echo $query . "</br>";
         if (!($dbResult = mysqli_query($dbLink, $query))) {
             echo 'Erreur dans requête<br />';
             // Affiche le type d'erreur.
@@ -70,6 +74,7 @@ class TranslationManage extends dbConnect {
         $id_family = NULL;
         if (!$family_exist) {
             $query = 'SELECT COUNT(*) FROM Family';
+            echo $query . "</br>";
             if (!($dbResult = mysqli_query($dbLink, $query))) {
                 echo 'Erreur dans requête<br />';
                 // Affiche le type d'erreur.
@@ -85,6 +90,7 @@ class TranslationManage extends dbConnect {
             $id_family = $family_exist;
         }
         $query = 'INSERT INTO Family VALUES \'' . $id_family . '\'';
+        echo $query . "</br>";
         if (!($dbResult = mysqli_query($dbLink, $query))) {
             echo 'Erreur dans requête<br />';
             // Affiche le type d'erreur.
@@ -94,6 +100,7 @@ class TranslationManage extends dbConnect {
             exit();
         }
         $query = 'INSERT INTO Sentences (LANGUAGE, TEXT, ID_FAMILY) VALUES (\'' . $from . '\', \'' . $textToTranslate . '\', \'' . $id_family . '\'), (\'' . $to . '\', NULL , \'' . $id_family . '\')';
+        echo $query . "</br>";
         if (!($dbResult = mysqli_query($dbLink, $query))) {
             echo 'Erreur dans requête<br />';
             // Affiche le type d'erreur.
@@ -103,6 +110,7 @@ class TranslationManage extends dbConnect {
             exit();
         }
         $query = 'INSERT INTO Translation (SOURCE_LANGUAGE, TRANSLATED_LANGUAGE, DATE, STATUS, ASKER, ID_FAMILY) VALUES (\'' . $from . '\', \'' . $to . '\', \'' . date('Y-m-d') . '\', \'' . 'WAITING' . '\', \'' . $_SESSION['id_user'] . '\', \'' . $id_family . '\')';
+        echo $query . "</br>";
         if (!($dbResult = mysqli_query($dbLink, $query))) {
             echo 'Erreur dans requête<br />';
             // Affiche le type d'erreur.
@@ -111,11 +119,14 @@ class TranslationManage extends dbConnect {
             echo 'Requête : ' . $query . '<br/>';
             exit();
         }
-    }
-    public function addTranslation($from, $to, $textToTranslate){
+    }*/
+
+    public function addTranslation($from, $to, $textToTranslate)
+    {
 
         $dbLink = $this->dbConnect();
         $query = "SELECT ID_FAMILY FROM Sentences WHERE TEXT = '" . $textToTranslate . "'";
+        echo $query . "</br>";
         if (!($dbResult = mysqli_query($dbLink, $query))) {
             echo 'Erreur dans requête<br />';
             // Affiche le type d'erreur.
@@ -134,6 +145,7 @@ class TranslationManage extends dbConnect {
         if (!$family_exist) {
 
             $query = 'SELECT COUNT(*) FROM Family';
+            echo $query . "</br>";
             if (!($dbResult = mysqli_query($dbLink, $query))) {
                 echo 'Erreur dans requête<br />';
                 // Affiche le type d'erreur.
@@ -149,7 +161,8 @@ class TranslationManage extends dbConnect {
         } else {
             $id_family = $family_exist;
 
-            $query = "SELECT TEXT FROM Sentences WHERE ID_FAMILY = " . $id_family . "AND L";
+            $query = "SELECT TEXT FROM Sentences WHERE ID_FAMILY = " . $id_family . " AND LANGUAGE  = '" . $to . "'";
+            echo $query . "</br>";
             if (!($dbResult = mysqli_query($dbLink, $query))) {
                 echo 'Erreur dans requête<br />';
                 // Affiche le type d'erreur.
@@ -160,21 +173,25 @@ class TranslationManage extends dbConnect {
             } else {
 
                 $rep = mysqli_fetch_assoc($dbResult);
-                $family_exist = $rep['ID_FAMILY'];
+                $sentence_exist_but_null = $rep['TEXT'];
             }
         }
 
-        $query = "INSERT INTO Family (ID_FAMILY) VALUES ($id_family)";
-        if (!($dbResult = mysqli_query($dbLink, $query))) {
-            echo 'Erreur dans requête<br />';
-            // Affiche le type d'erreur.
-            echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
-            // Affiche la requête envoyée.
-            echo 'Requête : ' . $query . '<br/>';
-            exit();
+        if (empty($sentence_exist_but_null)) {
+            $query = "INSERT INTO Family (ID_FAMILY) VALUES ($id_family)";
+            echo $query . "</br>";
+            if (!($dbResult = mysqli_query($dbLink, $query))) {
+                echo 'Erreur dans requête<br />';
+                // Affiche le type d'erreur.
+                echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+                // Affiche la requête envoyée.
+                echo 'Requête : ' . $query . '<br/>';
+                exit();
+            }
         }
 
         $query = 'INSERT INTO Sentences (LANGUAGE, TEXT, ID_FAMILY) VALUES (\'' . $from . '\', \'' . $textToTranslate . '\', \'' . $id_family . '\'), (\'' . $to . '\', NULL , \'' . $id_family . '\')';
+        echo $query . "</br>";
         if (!($dbResult = mysqli_query($dbLink, $query))) {
             echo 'Erreur dans requête<br />';
             // Affiche le type d'erreur.
@@ -182,10 +199,11 @@ class TranslationManage extends dbConnect {
             // Affiche la requête envoyée.
             echo 'Requête : ' . $query . '<br/>';
             exit();
+
         }
 
-        $query = 'INSERT INTO Translation (SOURCE_LANGUAGE, TRANSLATED_LANGUAGE, DATE, STATUS, ASKER, ID_FAMILY) VALUES (\'' . $from . '\', \'' . $to . '\', \'' . date('Y-m-d') . '\', \'' . 'WAITING' . '\', \'' . $_SESSION['id_user'] . '\', \'' . $id_family . '\')';
-
+        $query = 'INSERT INTO Translation (SOURCE_LANGUAGE, TRANSLATED_LANGUAGE, DATE, STATUS, ID_FAMILY) VALUES (\'' . $from . '\', \'' . $to . '\', \'' . date('Y-m-d') . '\', \'' . 'WAITING' . '\', \'' . $id_family . '\')';
+        echo $query;
         if (!($dbResult = mysqli_query($dbLink, $query))) {
             echo 'Erreur dans requête<br />';
             // Affiche le type d'erreur.
