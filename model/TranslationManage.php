@@ -5,13 +5,14 @@
  * Date: 21/01/2018
  * Time: 07:20
  */
-
-class TranslationManage extends dbConnect
-{
-    public function getTranslation($from, $to, $original)
+class TranslationManage extends dbConnect {
+    function __construct()
     {
+    }
 
-        $dbLink = $this->dbConnect();
+    public function getTranslation($from, $to, $original) {
+
+        $dbLink = $this->dbConnectMysqli();
 
         $query = "SELECT S1.TEXT AS text1, S2.TEXT AS text2"
             . " FROM Sentences AS S1, Sentences AS S2"
@@ -32,13 +33,11 @@ class TranslationManage extends dbConnect
             return $trad;
         }
     }
-
-    public function getTranslations($lang = 'US')
-    {
-        $dbLink = $this->dbConnect();
-        $query = "SELECT S1.TEXT AS text1, S2.TEXT AS text2"
-            . " FROM Sentences AS S1, Sentences AS S2"
-            . " WHERE S1.LANGUAGE = 'US' AND S2.LANGUAGE = '$lang' AND S2.ID_Family = S1.ID_Family;";
+    public function getTranslations($lang = 'US'){
+        $dbLink = $this->dbConnectMysqli();
+        $query ="SELECT S1.TEXT AS text1, S2.TEXT AS text2"
+                ." FROM Sentences AS S1, Sentences AS S2"
+                ." WHERE S1.LANGUAGE = 'US' AND S2.LANGUAGE = '$lang' AND S2.ID_Family = S1.ID_Family;";
         if (!($dbResult = mysqli_query($dbLink, $query))) {
             echo 'Erreur dans requête<br />';
             // Affiche le type d'erreur.
@@ -57,7 +56,7 @@ class TranslationManage extends dbConnect
 
     /*public function sendTranslation($from, $to, $textToTranslate)
     {
-        $dbLink = $this->dbConnect();
+        $dbLink = $this->dbConnectMysqli();
         $query = 'SELECT ID_FAMILY FROM Sentences WHERE TEXT = \'' . $textToTranslate . '\'';
         echo $query . "</br>";
         if (!($dbResult = mysqli_query($dbLink, $query))) {
@@ -123,10 +122,8 @@ class TranslationManage extends dbConnect
 
     public function addTranslation($from, $to, $textToTranslate)
     {
-
-        $dbLink = $this->dbConnect();
-        $query = "SELECT ID_FAMILY FROM Sentences WHERE TEXT = \"" . $textToTranslate . "\"";
-        echo $query . "</br>";
+        $dbLink = $this->dbConnectMysqli();
+        $query = "SELECT ID_FAMILY FROM Sentences WHERE TEXT = '" . $textToTranslate . "'";
         if (!($dbResult = mysqli_query($dbLink, $query))) {
             echo 'Erreur dans requête<br />';
             // Affiche le type d'erreur.
@@ -218,7 +215,7 @@ class TranslationManage extends dbConnect
     {
         $list = array();
 
-        $dbLink = $this->dbConnect();
+        $dbLink = $this->dbConnectMysqli();
         $query = "SELECT * FROM Translation WHERE STATUS = 'WAITING'";
         if (!($dbResult = mysqli_query($dbLink, $query))) {
             echo 'Erreur dans requête<br />';
@@ -250,7 +247,7 @@ class TranslationManage extends dbConnect
     public function requestComplete($to, $text_translated, $textToTranslate, $from)
     {
 
-        $dbLink = $this->dbConnect();
+        $dbLink = $this->dbConnectMysqli();
 
         $query = "SELECT ID_FAMILY FROM Sentences WHERE LANGUAGE = '$from' AND TEXT = \"$textToTranslate\"";
         if (!($dbResult = mysqli_query($dbLink, $query))) {

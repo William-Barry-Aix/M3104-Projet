@@ -1,16 +1,13 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jb
- * Date: 16/01/2018
- * Time: 18:24
- */
-
-class reinitMdp
+class ReinitMdp
 {
+    public function __construct()
+    {
+    }
+
     function reinitMdp(){
         $randomMdp = rand(1000000,9999999);
-        $email = $_SESSION['email'];
+        $email = $_POST['emailreinit'];
 
         $user = new UsersManage();
         $user->setRandMdp($email,$randomMdp);

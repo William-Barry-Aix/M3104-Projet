@@ -1,12 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: p16009763
- * Date: 15/01/18
- * Time: 14:02
- */
 include ('model/UsersManage.php');
-class signInFinsh
+
+class SignInFinsh
 {
     public function __construct()
     {

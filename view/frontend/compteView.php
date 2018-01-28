@@ -13,6 +13,10 @@
         Mot de passe<input type="password" name="mdp"/><br/>
         Nouveau mot de passe<input type="password" name="newMdp"/><br/>
         Verifier le mdp<input type="password" name="verifNewMdp"/><br/>
+        <div class="row">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a class="btn btn-info" role="button">Enregistrer</a>
+        </div>
     </form>
 <?php $content = ob_get_clean(); ?>
 <?php require('template.php');
