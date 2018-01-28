@@ -1,11 +1,11 @@
 <?php
-class Home
+class GestionSite
 {
     public function __construct()
     {
     }
 
     function show(){
-        require('view/frontend/homeView.php');
+        require ('gestionSiteView.php');
     }
 }

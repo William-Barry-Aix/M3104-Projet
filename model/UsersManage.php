@@ -1,5 +1,5 @@
 <?php
-include 'dbConnect.php';
+include 'DbConnect.php';
 /**
  * Created by PhpStorm.
  * User: p16009763
@@ -60,13 +60,12 @@ class UsersManage extends DbConnect
     public function getUsers(){
         $dbLink = $this->dbConnect();
         try {
-            $users = $dbLink->query('SELECT  TYPECOMPTE AS Type, Nom, Prenom, TELEPHONE, EMAIL
-                                              FROM Users')->fetchAll(PDO::FETCH_ASSOC);
+            $users = $dbLink->query('SELECT * FROM Users')->fetchAll(PDO::FETCH_ASSOC);
             return $users;
         }
         catch (PDOException $e){
             echo 'Erreur : ' , $e->getMessage(), PHP_EOL;
-            exit();
+            return array();
         }
     }
 
