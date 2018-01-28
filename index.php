@@ -10,6 +10,7 @@ include 'controler/translation.php';
 include 'controler/mdpChange.php';
 include 'controler/SwitchLang.php';
 include 'model/TranslationManage.php';
+include 'controler/translationManager.php';
 
 try{
      if (isset($_GET['action'])) {
@@ -61,8 +62,9 @@ try{
              $swap->swap();
              $swap->back();
          }
-         if($GET['action'] == 'manageTranslations') {
+         if($_GET['action'] == 'manageTranslations') {
              $manager = new translationManager();
+             $manager->show();
          }
      }else {
          $home = new Home();

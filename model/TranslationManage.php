@@ -214,7 +214,8 @@ class TranslationManage extends dbConnect
         }
     }
 
-    public function getTranslationRequestList(){
+    public function getTranslationRequestList()
+    {
         $list = array();
 
         $dbLink = $this->dbConnect();
@@ -240,6 +241,7 @@ class TranslationManage extends dbConnect
                 } else {
                     $rep = mysqli_fetch_assoc($dbResult);
                     array_push($list, array($row["SOURCE_LANGUAGE"], $rep["TEXT"], $row["TRANSLATED_LANGUAGE"]));
+                    echo "bonjour";
                 }
             }
             return $list;

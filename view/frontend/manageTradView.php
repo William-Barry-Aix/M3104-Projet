@@ -13,31 +13,27 @@
 
     <div class="container">
         <div class="form-group">
-        <?php
-            for($ligne = 0; $ligne < sizeof($list); $ligne++) {
+            <?php
+            for ($ligne = 0; $ligne < sizeof($list); ++$ligne) {
                 echo '
-                    <div class = row>
-                         <form method="post" action="index.php?action=manage">
-                            <div class="col">
-                                <label>Source language : </label>
-                                <input type="text" readonly class="form-control-plaintext" id="SOURCE_LANGUAGE" value="' . $list[$ligne][0] . '">
-                            </div>
-                            <div class="col">
-                                <input type="text" readonly class="form-control-plaintext" id="TEXT_TO_TRANSLATE" value="' . $list[$ligne][1] . '">
-                            </div>
-                            <div class = col>
-                                <input type="text" readonly class="form-control-plaintext" id="LANGUAGE_TRANSLATED" value="' . $list[$ligne][2] . '">
-                            </div>
-                            <div class="col">
-                                 <input type="email" class="form-control" id="TEXT_TRANSLATED" placeholder="Your Translation">
-                            </div>
-                            <div>
-                                <button type="submit" class="btn btn-primary" name="addTranslation" value="true">Add !</button>
-                            </div>
-                         </form>
+                    <form class="form-inline" method="post" action="index.php?action=manage">
+                        <div class="form-group mb-2">
+                            <input type="text" readonly class="form-control" id="FROM" value="' . $list[$ligne][0] . '">
+                         </div>
+                        <div class="form-group mx-sm-3 mb-2">
+                             <input type="text" readonly class="form-control" id="TEXT_TO_TRANSLATE" value="' . $list[$ligne][1] . '">
+                        </div>
+                        <div class="form-group mx-sm-3 mb-2">
+                             <input type="text" readonly class="form-control" id="TO" value="' . $list[$ligne][2] . '">
+                        </div>
+                        <div class="form-group mx-sm-3 mb-2">
+                             <input type="text"  class="form-control" id="TEXT_TRANSLATED" placeholder="Your Translation">
+                        </div>
+                        <button type="submit" name="addTranslation" value="true" class="btn btn-primary mb-2">Add !</button>
+                    </form>
                 ';
             }
-        ?>
+            ?>
         </div>
     </div>
 
