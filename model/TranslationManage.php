@@ -120,7 +120,7 @@ class TranslationManage extends dbConnect {
         }
     }*/
 
-    public function addTranslation($from, $to, $textToTranslate)
+    public function addTranslation($from, $to, $textToTranslate, $userID)
     {
         $dbLink = $this->dbConnectMysqli();
         $query = "SELECT ID_FAMILY FROM Sentences WHERE TEXT = '" . $textToTranslate . "'";
@@ -199,7 +199,7 @@ class TranslationManage extends dbConnect {
 
         }
 
-        $query = 'INSERT INTO Translation (SOURCE_LANGUAGE, TRANSLATED_LANGUAGE, DATE, STATUS, ID_FAMILY) VALUES (\'' . $from . '\', \'' . $to . '\', \'' . date('Y-m-d') . '\', \'' . 'WAITING' . '\', \'' . $id_family . '\')';
+        $query = 'INSERT INTO Translation (SOURCE_LANGUAGE, TRANSLATED_LANGUAGE, DATE, STATUS, ID_FAMILY, IDUSER) VALUES (\'' . $from . '\', \'' . $to . '\', \'' . date('Y-m-d') . '\', \'' . 'WAITING' . '\', \'' . $id_family . '\', \'' . $userID . '\')';
         echo $query;
         if (!($dbResult = mysqli_query($dbLink, $query))) {
             echo 'Erreur dans requête<br />';
