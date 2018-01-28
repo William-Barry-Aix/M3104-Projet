@@ -11,6 +11,7 @@ include 'controler/signUp.php';
 include 'controler/translation.php';
 include 'controler/mdpChange.php';
 include 'controler/SwitchLang.php';
+include 'controler/ManageUsers.php';
 include 'model/TranslationManage.php';
 
 try{
@@ -62,6 +63,10 @@ try{
              $swap = new SwitchLang();
              $swap->swap();
              $swap->back();
+         }
+         if ($_GET['action'] == 'manageUsers'){
+             $manage = new ManageUsers();
+             $manage->show();
          }
      }else {
          $home = new Home();

@@ -17,6 +17,9 @@
 	                    <li class="nav-item py-1 ">
                             <a class="nav-link px-3" href="index.php?action=translation"><?= $tradList["Translate"] ?></a>
 	                    </li>
+                        <li class="nav-item py-1 ">
+                            <a class="nav-link px-3" href="index.php?action=manageUsers">Manage Users</a>
+                        </li>
                         <?php if (isset($_SESSION['type'])): ?>
                             <?php if ($_SESSION['type'] == 0): ?>
                                 <li class="nav-item dropdown py-1">
@@ -47,6 +50,7 @@
                                     </ul>
                                 </li>
                             <?php endif; ?>
+
                         <?php endif; ?>
 	                    <li class="nav-item dropdown py-1">
 							<a href="#" class="nav-link px-3 dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i><?= _("Lang") ?><b class="caret"></b></a>
