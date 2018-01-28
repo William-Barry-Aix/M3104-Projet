@@ -11,19 +11,13 @@
             </div>
             <div class="row">
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    <label for="exampleInputPassword1"><?= $tradList["Password"] ?></label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="<?= $tradList["Password"] ?>">
                 </div>
             </div>
             <div class="row">
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <a href="index.php?action=goToFormReinit" class="btn btn-info" role="button">Mot de passe oublié ?</a>
+                <a href="index.php?action=goToFormReinit" class="btn btn-info" role="button"><?= $tradList["Password Forgot"] ?></a>
             </div>
         </form>
     </div>
