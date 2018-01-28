@@ -47,7 +47,7 @@
                                     </ul>
                                 </li>
                             <?php endif; ?>
-                            <?php if ($_SESSION['type'] == 2): ?>
+                            <?php if ($_SESSION['type'] == 3): ?>
                                 <li class="nav-item dropdown py-1">
                                     <a href="#" class="nav-link px-3 dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i><?= _("Options") ?><b class="caret"></b></a>
                                     <ul class="dropdown-menu py-0  my-0 border-0">
