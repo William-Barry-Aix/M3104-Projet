@@ -1,21 +1,22 @@
-
-<?php $title = 'SignUp' ?>
+<?php $title = 'SignUp' ;
+$meta = "Page de création de compte";
+?>
 <?php
 if (isset($_SESSION['mdpErreur'])){
     if ($_SESSION['mdpErreur'] == 'true'){
-        echo('<p>Mot de passe different<p>');
+        echo('<p>'. $tradList["A summary email of your account has been sent"].'<p>');
         $_SESSION = array();
         }
     }
 ob_start();?>
 
 <form action="index.php?action=signUpRegister" method="post">
-    Nom<input type="text" name="nom"/><br/>
-    Prenom<input type="text" name="prenom"/><br/>
-    E-Mail<input type="text" name="e_mail"/><br/>
-    Telephone<input type="number" name="tel"/><br/>
-    Mot de passe<input type="password" name="mdp"/><br/>
-    Verifier le mdp<input type="password" name="verifMdp"/><br/>
+    <?= $tradList["Name"] ?><input type="text" name="nom"/><br/>
+    <?= $tradList["First name"] ?><input type="text" name="prenom"/><br/>
+    <?= $tradList["E-Mail"] ?><input type="text" name="e_mail"/><br/>
+    <?= $tradList["Phone"] ?><input type="number" name="tel"/><br/>
+    <?= $tradList["Password"] ?><input type="password" name="mdp"/><br/>
+    <?= $tradList["Check the password"] ?><input type="password" name="verifMdp"/><br/>
     <input type="submit" name="Envoyer" value="register"/><br/>
 </form>
 <?php $content = ob_get_clean(); ?>

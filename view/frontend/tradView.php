@@ -1,11 +1,12 @@
-<?php $title = "Translate" ?>
+<?php $title = "Translate" ;
+$meta = "Page de tradcution";?>
 <?php ob_start(); ?>
     <section id="description">
         <div class="container-fluid">
             <div class="jumbotron jumbotron-fluid intro my-0 mb-3 py-1 text-center">
                 <div class="container">
                     <h1 class="display-4">Translation</h1>
-                    <p class="lead">Here you can translate everything you need thanks to other members</p>
+                    <p class="lead"><?= $tradList["Here you can translate everything you need thanks to other members"] ?></p>
                 </div>
             </div>
         </div>

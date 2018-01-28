@@ -31,20 +31,20 @@
                                 <li class="nav-item dropdown py-1">
                                     <a href="#" class="nav-link px-3 dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i><?= $tradList["Options"] ?><b class="caret"></b></a>
                                     <ul class="dropdown-menu py-0  my-0 border-0">
-                                        <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=compte"><?= _("Account") ?></a></li>
-                                        <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=deconnexion"><?= _("Disconnection") ?></a></li>
-                                        <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=visuDemandes"><?= _("Mes Demandes") ?></a></li>
+                                        <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=compte"><?= $tradList["Account"]?></a></li>
+                                        <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=deconnexion"><?= $tradList["Disconnection"] ?></a></li>
+                                        <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=visuDemandes"><?= $tradList["Mes Demandes"] ?></a></li>
                                     </ul>
                                 </li>
                             <?php endif; ?>
                             <?php if ($_SESSION['type'] == 2): ?>
                                 <li class="nav-item dropdown py-1">
-                                    <a href="#" class="nav-link px-3 dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i><?= _("Options") ?><b class="caret"></b></a>
+                                    <a href="#" class="nav-link px-3 dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i><?= $tradList["Options"] ?><b class="caret"></b></a>
                                     <ul class="dropdown-menu py-0  my-0 border-0">
-                                        <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=compte"><?= _("Account") ?></a></li>
-                                        <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=manageTranslations"><?= _("Manage translations") ?></a></li>
-                                        <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=deconnexion"><?= _("Disconnection") ?></a></li>
-                                        <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=manageUsers"><?= _("Manage Users") ?></a></li>
+                                        <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=compte"><?= $tradList["Account"] ?></a></li>
+                                        <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=manageTranslations"><?= $tradList["Manage translations"] ?></a></li>
+                                        <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=deconnexion"><?= $tradList["Disconnection"] ?></a></li>
+                                        <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=manageUsers"><?= $tradList["Manage Users"] ?></a></li>
                                     </ul>
                                 </li>
                             <?php endif; ?>
@@ -52,16 +52,16 @@
                                 <li class="nav-item dropdown py-1">
                                     <a href="#" class="nav-link px-3 dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i><?= _("Options") ?><b class="caret"></b></a>
                                     <ul class="dropdown-menu py-0  my-0 border-0">
-                                        <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=compte"><?= _("Account") ?></a></li>
-                                        <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=manageTranslations"><?= _("Manage translations") ?></a></li>
-                                        <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=deconnexion"><?= _("Disconnection") ?></a></li>
+                                        <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=compte"><?= $tradList["Account"] ?></a></li>
+                                        <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=manageTranslations"><?= $tradList["Manage translations"] ?></a></li>
+                                        <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=deconnexion"><?= $tradList["Disconnection"] ?></a></li>
                                     </ul>
                                 </li>
                             <?php endif; ?>
 
                         <?php endif; ?>
 	                    <li class="nav-item dropdown py-1">
-							<a href="#" class="nav-link px-3 dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i><?= _("Lang") ?><b class="caret"></b></a>
+							<a href="#" class="nav-link px-3 dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i><?= $tradList["Lang"] ?><b class="caret"></b></a>
 							<ul class="dropdown-menu py-0  my-0 border-0">
                                 <?php
                                 $before = '';

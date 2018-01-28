@@ -14,7 +14,7 @@ class TranslationAsker
     {
 
     }
-
+    //Envoie de la demande de traduciton
     public function send() {
         $translation = new TranslationManage();
 

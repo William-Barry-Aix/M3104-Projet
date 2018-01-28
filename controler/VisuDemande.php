@@ -11,6 +11,8 @@ class VisuDemande
     public function __construct()
     {
     }
+
+    // Recuperer toutes les demandes d'un utilisateurs premium puis les affiches sur la page des demandes
     function show(){
         $translation = new TranslationManage();
         $list = $translation->getTranslationRequestListPre();

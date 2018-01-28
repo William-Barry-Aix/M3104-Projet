@@ -6,6 +6,7 @@ class Translation
 
     }
 
+    //Initialise les variable et affichage de la page
     public function show(){
         $trad['text1'] = '';
         $trad['text2'] = '';
@@ -22,6 +23,8 @@ class Translation
 
         require ('view/frontend/tradView.php');
     }
+
+    // Utilise la fonction getTranslation pour traduire la demande et réaffiche la page de traduction
     public function translate() {
 
         //if(isset($_SESSION['type'])) {
@@ -52,6 +55,8 @@ class Translation
 
         }
     }
+
+    //enregistre une suggestion de traduction et réaffiche la page de traduction
     public function suggest(){
         $translation = new TranslationManage();
         if(isset($_POST["original"]) && isset($_POST["translated"]) && isset($_POST["lang1"]) && isset($_POST["lang2"])) {

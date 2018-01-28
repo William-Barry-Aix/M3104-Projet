@@ -8,6 +8,7 @@ class SignInFinsh
 
     }
 
+    //recupere les infos de connection et connect l'utilisateurs avec getUser()
     public function signInFinish(){
         $user = new UsersManage();
         if (isset($_POST['email']) && isset($_POST['password'])) {

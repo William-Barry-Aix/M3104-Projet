@@ -10,6 +10,7 @@ class TranslationManage extends dbConnect {
     {
     }
 
+    //Recupere une traduction
     public function getTranslation($from, $to, $original) {
 
         $dbLink = $this->dbConnectMysqli();
@@ -33,6 +34,8 @@ class TranslationManage extends dbConnect {
             return $trad;
         }
     }
+
+    //Recupere toute les traductions
     public function getTranslations($lang = 'US'){
         $dbLink = $this->dbConnectMysqli();
         $query ="SELECT S1.TEXT AS text1, S2.TEXT AS text2"
@@ -54,72 +57,7 @@ class TranslationManage extends dbConnect {
         }
     }
 
-    /*public function sendTranslation($from, $to, $textToTranslate)
-    {
-        $dbLink = $this->dbConnectMysqli();
-        $query = 'SELECT ID_FAMILY FROM Sentences WHERE TEXT = \'' . $textToTranslate . '\'';
-        echo $query . "</br>";
-        if (!($dbResult = mysqli_query($dbLink, $query))) {
-            echo 'Erreur dans requête<br />';
-            // Affiche le type d'erreur.
-            echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
-            // Affiche la requête envoyée.
-            echo 'Requête : ' . $query . '<br/>';
-            exit();
-        } else {
-            $rep = mysqli_fetch_assoc($dbResult);
-            $family_exist = $rep['ID_FAMILY'];
-        }
-        $id_family = NULL;
-        if (!$family_exist) {
-            $query = 'SELECT COUNT(*) FROM Family';
-            echo $query . "</br>";
-            if (!($dbResult = mysqli_query($dbLink, $query))) {
-                echo 'Erreur dans requête<br />';
-                // Affiche le type d'erreur.
-                echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
-                // Affiche la requête envoyée.
-                echo 'Requête : ' . $query . '<br/>';
-                exit();
-            } else {
-                $rep = mysqli_fetch_assoc($dbResult);
-                $id_family = $rep["COUNT(*)"] + 1;
-            }
-        } else {
-            $id_family = $family_exist;
-        }
-        $query = 'INSERT INTO Family VALUES \'' . $id_family . '\'';
-        echo $query . "</br>";
-        if (!($dbResult = mysqli_query($dbLink, $query))) {
-            echo 'Erreur dans requête<br />';
-            // Affiche le type d'erreur.
-            echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
-            // Affiche la requête envoyée.
-            echo 'Requête : ' . $query . '<br/>';
-            exit();
-        }
-        $query = 'INSERT INTO Sentences (LANGUAGE, TEXT, ID_FAMILY) VALUES (\'' . $from . '\', \'' . $textToTranslate . '\', \'' . $id_family . '\'), (\'' . $to . '\', NULL , \'' . $id_family . '\')';
-        echo $query . "</br>";
-        if (!($dbResult = mysqli_query($dbLink, $query))) {
-            echo 'Erreur dans requête<br />';
-            // Affiche le type d'erreur.
-            echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
-            // Affiche la requête envoyée.
-            echo 'Requête : ' . $query . '<br/>';
-            exit();
-        }
-        $query = 'INSERT INTO Translation (SOURCE_LANGUAGE, TRANSLATED_LANGUAGE, DATE, STATUS, ASKER, ID_FAMILY) VALUES (\'' . $from . '\', \'' . $to . '\', \'' . date('Y-m-d') . '\', \'' . 'WAITING' . '\', \'' . $_SESSION['id_user'] . '\', \'' . $id_family . '\')';
-        echo $query . "</br>";
-        if (!($dbResult = mysqli_query($dbLink, $query))) {
-            echo 'Erreur dans requête<br />';
-            // Affiche le type d'erreur.
-            echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
-            // Affiche la requête envoyée.
-            echo 'Requête : ' . $query . '<br/>';
-            exit();
-        }
-    }*/
-
+    //Ajout d'une traduction
     public function addTranslation($from, $to, $textToTranslate, $userID)
     {
         $dbLink = $this->dbConnectMysqli();
@@ -211,6 +149,7 @@ class TranslationManage extends dbConnect {
         }
     }
 
+    // Recupere toutes les demandes de traduction
     public function getTranslationRequestList()
     {
         $dbLink = $this->dbConnect();
@@ -228,6 +167,7 @@ class TranslationManage extends dbConnect {
         return $list;
     }
 
+    // Recuperer toutes les demandes de traduction premium
     public function getTranslationRequestListPre()
     {
 
@@ -254,6 +194,7 @@ class TranslationManage extends dbConnect {
         }
     }
 
+    // Ajoute une demande de traduction et met la demande en DONE
     public function requestComplete($to, $text_translated, $textToTranslate, $from)
     {
 
