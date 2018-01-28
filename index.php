@@ -10,6 +10,8 @@ include 'controler/signInFinsh.php';
 include 'controler/signUp.php';
 include 'controler/translation.php';
 include 'controler/mdpChange.php';
+include 'controler/goToFormReinit.php';
+include 'controler/reinitMdp.php';
 include 'controler/SwitchLang.php';
 include 'model/TranslationManage.php';
 
@@ -49,6 +51,9 @@ try{
          }
          if ($_GET['action'] ==  'reinitMdp') {
              $reinitMdp = new reinitMdp();
+         }
+         if ($_GET['action'] ==  'goToFormReinit') {
+             $goToFormReinit = new goToFormReinit();
          }
          if ($_GET['action'] == 'translationQuery') {
              $onGoingTranslation = new translation();
