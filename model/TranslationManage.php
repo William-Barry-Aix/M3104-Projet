@@ -246,37 +246,35 @@ class TranslationManage extends dbConnect {
 
     public function getTranslationRequestListPre()
     {
-        $list = array();
 
         $id = $_SESSION['userID'];
 
-        $dbLink = $this->dbConnectMysqli();
-        $query = "SELECT * FROM Translation WHERE IDUSER = '$id '";
-        if (!($dbResult = mysqli_query($dbLink, $query))) {
-            echo 'Erreur dans requête<br />';
-            // Affiche le type d'erreur.
-            echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
-            // Affiche la requête envoyée.
-            echo 'Requête : ' . $query . '<br/>';
-            exit();
-        } else {
+        $dbLink = $this->dbConnect();
+        try {
+//            $translations = $dbLink->query('SELECT Translation.* , Sentences.*
+//                                            FROM Translation
+//                                            INNER JOIN Sentences ON Translation.ID_FAMILY = Sentences.ID_FAMILY
+//                                            WHERE Sentences.LANGUAGE = Translation.SOURCE_LANGUAGE
+//                                            AND Translation.IDUSER = ' . $id )->fetchAll(PDO::FETCH_ASSOC);
+//            return $translations;
 
-            while ($row = mysqli_fetch_assoc($dbResult)) {
-                $query = "SELECT TEXT FROM Sentences WHERE ID_FAMILY = " . $row["ID_FAMILY"] . " AND LANGUAGE = '" . $row["SOURCE_LANGUAGE"] . "'";
-                if (!($dbResult = mysqli_query($dbLink, $query))) {
-                    echo 'Erreur dans requête<br />';
-                    // Affiche le type d'erreur.
-                    echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
-                    // Affiche la requête envoyée.
-                    echo 'Requête : ' . $query . '<br/>';
-                    exit();
-                } else {
-                    $rep = mysqli_fetch_assoc($dbResult);
-                    array_push($list, array($row["SOURCE_LANGUAGE"], $rep["TEXT"], $row["TRANSLATED_LANGUAGE"]));
-                }
+            $request = $dbLink->prepare("SELECT Translation.* , Sentences.*
+                                            FROM Translation
+                                            INNER JOIN Sentences ON Translation.ID_FAMILY = Sentences.ID_FAMILY
+                                            WHERE Sentences.LANGUAGE = Translation.SOURCE_LANGUAGE
+                                            AND Translation.IDUSER = :id ");
+            $request->bindValue(':id', $id);
+            $request->execute();
+            if ($request->rowCount()) {
+                $translations = $request->fetchALL();
+                return $translations;
             }
+
         }
-        return $list;
+        catch (PDOException $e){
+            echo 'Erreur : ' , $e->getMessage(), PHP_EOL;
+            return array();
+        }
     }
 
     public function requestComplete($to, $text_translated, $textToTranslate, $from)
