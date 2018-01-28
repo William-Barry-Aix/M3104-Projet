@@ -243,7 +243,46 @@ class TranslationManage extends dbConnect
                     array_push($list, array($row["SOURCE_LANGUAGE"], $rep["TEXT"], $row["TRANSLATED_LANGUAGE"]));
                 }
             }
-            return $list;
+        }
+        return $list;
+    }
+
+    public function requestComplete($to, $text_translated, $textToTranslate, $from)
+    {
+
+        $dbLink = $this->dbConnect();
+
+        $query = "SELECT ID_FAMILY FROM Sentences WHERE LANGUAGE = '$from' AND TEXT = '$textToTranslate'";
+        if (!($dbResult = mysqli_query($dbLink, $query))) {
+            echo 'Erreur dans requête<br />';
+            // Affiche le type d'erreur.
+            echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+            // Affiche la requête envoyée.
+            echo 'Requête : ' . $query . '<br/>';
+            exit();
+        } else {
+            $rep = mysqli_fetch_assoc($dbResult);
+            $id_family = $rep["ID_FAMILY"];
+
+            $query = "UPDATE Sentences SET TEXT = '$text_translated' WHERE ID_FAMILY = '$id_family' AND LANGUAGE = '$to'";
+            if (!($dbResult = mysqli_query($dbLink, $query))) {
+                echo 'Erreur dans requête<br />';
+                // Affiche le type d'erreur.
+                echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+                // Affiche la requête envoyée.
+                echo 'Requête : ' . $query . '<br/>';
+                exit();
+            } else {
+                $query = "UPDATE Translation SET STATUS = 'DONE' WHERE ID_FAMILY = '$id_family' AND SOURCE_LANGUAGE = '$from' AND TRANSLATED_LANGUAGE = '$to'";
+                if (!($dbResult = mysqli_query($dbLink, $query))) {
+                    echo 'Erreur dans requête<br />';
+                    // Affiche le type d'erreur.
+                    echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+                    // Affiche la requête envoyée.
+                    echo 'Requête : ' . $query . '<br/>';
+                    exit();
+                }
+            }
         }
     }
 }

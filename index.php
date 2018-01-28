@@ -66,6 +66,12 @@ try{
              $manager = new translationManager();
              $manager->show();
          }
+         if($_GET['action'] == 'manage') {
+             $translationRequest = new translationManager();
+             if (isset($_POST['addTranslation'])) {
+                 $translationRequest->addTranslationRequest();
+             }
+         }
      }else {
          $home = new Home();
      }
