@@ -12,6 +12,7 @@ include_once 'controler/SignUp.php';
 include_once 'controler/Translation.php';
 include_once 'controler/MdpChange.php';
 include_once 'controler/GoToFormReinit.php';
+include_once 'controler/DelUser.php';
 include_once 'controler/ReinitMdp.php';
 include_once 'controler/SwitchLang.php';
 include_once 'controler/ManageUsers.php';
@@ -19,7 +20,7 @@ include_once 'model/TranslationManage.php';
 
 try{
      if (isset($_GET['action'])) {
-         if ($_GET['action'] == 'SignIn') {
+         if ($_GET['action'] == 'signin') {
              $signin = new SignIn();
              $signin->show();
          }
@@ -31,15 +32,15 @@ try{
              $signup = new SignUp();
              $signup->signUpRegister();
         }
-         if ($_GET['action'] == 'SignUp') {
+         if ($_GET['action'] == 'signup') {
              $signup = new SignUp();
              $signup->signUp();
          }
-         if ($_GET['action'] == 'Deconnexion') {
+         if ($_GET['action'] == 'deconnexion') {
              $deconnexion = new Deconnexion();
              $deconnexion->disconect();
          }
-         if ($_GET['action'] == 'Compte') {
+         if ($_GET['action'] == 'compte') {
              $compte = new Compte();
              $compte->show();
          }
@@ -47,7 +48,7 @@ try{
              $gestionSite = new GestionSite();
              $gestionSite->show();
          }
-         if ($_GET['action'] == 'Translation') {
+         if ($_GET['action'] == 'translation') {
              $translation = new Translation();
              $translation->show();
          }
@@ -55,12 +56,17 @@ try{
              $mdpChange = new MdpChange();
              $mdpChange->mdpChange();
          }
-         if ($_GET['action'] == 'ReinitMdp') {
+         if ($_GET['action'] == 'reinitMdp') {
              $reinitMdp = new ReinitMdp();
              $reinitMdp->reinitMdp();
          }
          if ($_GET['action'] ==  'goToFormReinit') {
-             $goToFormReinit = new goToFormReinit();
+             $goToFormReinit = new GoToFormReinit();
+             $goToFormReinit->goToFormReinit();
+         }
+         if ($_GET['action'] == 'deleteUser') {
+             $delUser = new DelUser();
+             $delUser->delUser();
          }
          if ($_GET['action'] == 'translationQuery') {
              $onGoingTranslation = new Translation();

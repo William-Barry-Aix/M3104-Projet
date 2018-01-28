@@ -41,8 +41,8 @@
                             <th scope="row"><?= $user['EMAIL'] ?></th>
                             <th scope="row"><?= $user['TELEPHONE'] ?></th>
                             <th scope="row">
-                                <button type="submit" class="btn btn-primary" name="modify" value="<?= $user['ID']?>">Modify</button>
-                                <button type="submit" class="btn btn-primary" name="delete" value="<?= $user['ID']?>">Delete</button>
+                                <button type="submit" class="btn btn-primary" name="modify" value="<?= $user['ID']?>">Modify permission</button>
+                                <button type="submit" class="btn btn-primary" name="delete" action="" value="<?= $user['ID']?>">Delete</button>
                             </th>
                         </tr>
                     </form>

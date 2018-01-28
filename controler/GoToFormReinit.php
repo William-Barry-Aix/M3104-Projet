@@ -8,6 +8,9 @@
 
 class goToFormReinit
 {
+    public function __construct()
+    {
+    }
     function goToFormReinit(){
         require('view/frontend/formReinitMdpView.php');
     }

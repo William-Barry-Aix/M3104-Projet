@@ -6,6 +6,6 @@ class GestionSite
     }
 
     function show(){
-        require ('gestionSiteView.php');
+        require ('view/frontend/gestionSiteView.php');
     }
 }

@@ -101,4 +101,15 @@ class UsersManage extends DbConnect
             exit();
         }
     }
+    public function deleteUser($ID){
+        $dbLink = $this->dbConnect();
+
+        $request = $dbLink->prepare('DELETE FROM Users
+                                               WHERE ID = :id');
+        $request->bindValue(':id',$ID);
+        if (!$request->execute()) {
+            echo 'Erreur : ' , $request->errorInfo(), PHP_EOL;
+            exit();
+        }
+    }
 }

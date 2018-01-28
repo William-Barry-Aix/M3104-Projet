@@ -17,9 +17,6 @@
 	                    <li class="nav-item py-1 ">
                             <a class="nav-link px-3" href="index.php?action=translation"><?= $tradList["Translate"] ?></a>
 	                    </li>
-                        <li class="nav-item py-1 ">
-                            <a class="nav-link px-3" href="index.php?action=manageUsers">Manage Users</a>
-                        </li>
                         <?php if (isset($_SESSION['type'])): ?>
                             <?php if ($_SESSION['type'] == 0): ?>
                                 <li class="nav-item dropdown py-1">
@@ -47,6 +44,7 @@
                                         <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=compte"><?= _("Account") ?></a></li>
                                         <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=gererSite"><?= _("Manage website") ?></a></li>
                                         <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=deconnexion"><?= _("Disconnection") ?></a></li>
+                                        <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=manageUsers"><?= _("Manage Users") ?></a></li>
                                     </ul>
                                 </li>
                             <?php endif; ?>
