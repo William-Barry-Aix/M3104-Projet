@@ -17,6 +17,7 @@ include_once 'controler/ReinitMdp.php';
 include_once 'controler/SwitchLang.php';
 include_once 'controler/ManageUsers.php';
 include_once 'model/TranslationManage.php';
+include_once 'controler/translationManager.php';
 
 try{
      if (isset($_GET['action'])) {
@@ -80,6 +81,16 @@ try{
              $swap = new SwitchLang();
              $swap->swap();
              $swap->back();
+         }
+         if($_GET['action'] == 'manageTranslations') {
+             $manager = new translationManager();
+             $manager->show();
+         }
+         if($_GET['action'] == 'manage') {
+             $translationRequest = new translationManager();
+             if (isset($_POST['addTranslation'])) {
+                 $translationRequest->addTranslationRequest();
+             }
          }
          if ($_GET['action'] == 'manageUsers'){
              $manage = new ManageUsers();
