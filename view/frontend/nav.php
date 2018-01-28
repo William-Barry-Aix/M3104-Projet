@@ -32,7 +32,6 @@
                                     <a href="#" class="nav-link px-3 dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i><?= _("Options") ?><b class="caret"></b></a>
                                     <ul class="dropdown-menu py-0  my-0 border-0">
                                         <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=compte"><?= _("Account") ?></a></li>
-                                        <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=manageTranslations"><?= _("Manage translations") ?></a></li>
                                         <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=deconnexion"><?= _("Disconnection") ?></a></li>
                                     </ul>
                                 </li>
@@ -42,10 +41,19 @@
                                     <a href="#" class="nav-link px-3 dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i><?= _("Options") ?><b class="caret"></b></a>
                                     <ul class="dropdown-menu py-0  my-0 border-0">
                                         <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=compte"><?= _("Account") ?></a></li>
-                                        <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=gererSite"><?= _("Manage website") ?></a></li>
                                         <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=manageTranslations"><?= _("Manage translations") ?></a></li>
                                         <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=deconnexion"><?= _("Disconnection") ?></a></li>
                                         <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=manageUsers"><?= _("Manage Users") ?></a></li>
+                                    </ul>
+                                </li>
+                            <?php endif; ?>
+                            <?php if ($_SESSION['type'] == 2): ?>
+                                <li class="nav-item dropdown py-1">
+                                    <a href="#" class="nav-link px-3 dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i><?= _("Options") ?><b class="caret"></b></a>
+                                    <ul class="dropdown-menu py-0  my-0 border-0">
+                                        <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=compte"><?= _("Account") ?></a></li>
+                                        <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=manageTranslations"><?= _("Manage translations") ?></a></li>
+                                        <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=deconnexion"><?= _("Disconnection") ?></a></li>
                                     </ul>
                                 </li>
                             <?php endif; ?>
