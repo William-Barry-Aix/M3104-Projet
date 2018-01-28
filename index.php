@@ -17,6 +17,8 @@ include_once 'controler/SwitchLang.php';
 include_once 'controler/ManageUsers.php';
 include_once 'model/TranslationManage.php';
 include_once 'controler/translationManager.php';
+include_once 'model/VisuDeamnde.php';
+
 
 try{
      if (isset($_GET['action'])) {
@@ -90,6 +92,10 @@ try{
          if ($_GET['action'] == 'manageUsers'){
              $manage = new ManageUsers();
              $manage->show();
+         }
+         if($_GET['action'] == 'visuDemandes') {
+             $visuDemande = new VisuDemande();
+             $visuDemande->show();
          }
      }else {
          $home = new Home();
