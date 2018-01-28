@@ -12,7 +12,7 @@ include_once 'controler/SignUp.php';
 include_once 'controler/Translation.php';
 include_once 'controler/MdpChange.php';
 include_once 'controler/GoToFormReinit.php';
-include_once 'controler/DelUser.php';
+include_once 'controler/ModifyUser.php';
 include_once 'controler/ReinitMdp.php';
 include_once 'controler/SwitchLang.php';
 include_once 'controler/ManageUsers.php';
@@ -64,9 +64,9 @@ try{
              $goToFormReinit = new GoToFormReinit();
              $goToFormReinit->goToFormReinit();
          }
-         if ($_GET['action'] == 'deleteUser') {
-             $delUser = new DelUser();
-             $delUser->delUser();
+         if ($_GET['action'] == 'modifyUser') {
+             $delUser = new ModifyUser();
+             $delUser->modifyUser();
          }
          if ($_GET['action'] == 'translationQuery') {
              $onGoingTranslation = new Translation();

@@ -112,4 +112,18 @@ class UsersManage extends DbConnect
             exit();
         }
     }
+
+    Public function changeRight($ID,$typeC){
+        $dbLink = $this->dbConnect();
+        $request = $dbLink->prepare('UPDATE Users 
+                                               SET TYPECOMPTE = :typeC
+                                               WHERE ID = :ID ');
+        $request->bindValue(':typeC', $typeC);
+        $request->bindValue(':ID', $ID);
+
+        if (!$request->execute()) {
+            echo 'Erreur : ' , $request->errorInfo(), PHP_EOL;
+            exit();
+        }
+    }
 }

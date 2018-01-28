@@ -27,13 +27,14 @@
                 <?php
                 $row = '';
                 foreach ($users as $user){?>
-                    <form>
+                    <form method="post"action="index.php?action=modifyUser">
                         <tr>
                             <th scope="row">
-                                <select class="form-control" id="type">
-                                    <option value="1" <?php if($user['TYPECOMPTE'] == 1) echo 'selected' ?>>1</option>
-                                    <option value="2" <?php if($user['TYPECOMPTE'] == 2) echo 'selected' ?>>2</option>
-                                    <option value="3" <?php if($user['TYPECOMPTE'] == 3) echo 'selected' ?>>3</option>
+                                <select class="form-control" id="type" name="typeC">
+                                    <option value="0" <?php if($user['TYPECOMPTE'] == 0) echo 'selected' ?>>Comtpe normal</option>
+                                    <option value="1" <?php if($user['TYPECOMPTE'] == 1) echo 'selected' ?>>Comtpe premium</option>
+                                    <option value="2" <?php if($user['TYPECOMPTE'] == 2) echo 'selected' ?>>Comtpe admin</option>
+                                    <option value="3" <?php if($user['TYPECOMPTE'] == 3) echo 'selected' ?>>Comtpe traducteur</option>
                                 </select>
                             </th>
                             <th scope="row"><?= $user['NOM'] ?></th>
@@ -41,8 +42,8 @@
                             <th scope="row"><?= $user['EMAIL'] ?></th>
                             <th scope="row"><?= $user['TELEPHONE'] ?></th>
                             <th scope="row">
+                                <button type="submit" class="btn btn-primary" name="delete" value="<?= $user['ID']?>">Delete</button>
                                 <button type="submit" class="btn btn-primary" name="modify" value="<?= $user['ID']?>">Modify permission</button>
-                                <button type="submit" class="btn btn-primary" name="delete" action="" value="<?= $user['ID']?>">Delete</button>
                             </th>
                         </tr>
                     </form>
