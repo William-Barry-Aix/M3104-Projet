@@ -4,6 +4,8 @@ class DbConnect
     function __construct()
     {
     }
+
+    //COnnection a la BD en PDO
     protected function dbConnect()
     {
         try {
@@ -13,6 +15,8 @@ class DbConnect
             die('Erreur : ' . $e->getMessage());
         }
     }
+
+    //Connection a la BD en mysquli
     protected function dbConnectMysqli()
     {
         $dbLink = mysqli_connect("mysql-projetphpg3s3.alwaysdata.net", "150626", "1234")

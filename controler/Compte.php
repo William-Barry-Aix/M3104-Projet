@@ -5,6 +5,7 @@ class Compte
     {
     }
 
+    //Affichage de la page
     public function show()
     {
         require('view/frontend/compteView.php');

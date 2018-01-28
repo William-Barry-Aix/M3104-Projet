@@ -5,6 +5,7 @@ class ReinitMdp
     {
     }
 
+    // Met un mot de passe aleatoir a un utilisateur ayant perdu son mot de passe et lui envoie
     function reinitMdp(){
         $randomMdp = rand(1000000,9999999);
         $email = $_POST['emailreinit'];

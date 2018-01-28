@@ -5,6 +5,7 @@ class MdpChange
     {
     }
 
+    // Changement de mot de passe
     function mdpChange (){
         $mdp = $_POST['mdp'];
         $newMdp = $_POST['newMdp'];
