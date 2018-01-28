@@ -251,13 +251,6 @@ class TranslationManage extends dbConnect {
 
         $dbLink = $this->dbConnect();
         try {
-//            $translations = $dbLink->query('SELECT Translation.* , Sentences.*
-//                                            FROM Translation
-//                                            INNER JOIN Sentences ON Translation.ID_FAMILY = Sentences.ID_FAMILY
-//                                            WHERE Sentences.LANGUAGE = Translation.SOURCE_LANGUAGE
-//                                            AND Translation.IDUSER = ' . $id )->fetchAll(PDO::FETCH_ASSOC);
-//            return $translations;
-
             $request = $dbLink->prepare("SELECT Translation.* , Sentences.*
                                             FROM Translation
                                             INNER JOIN Sentences ON Translation.ID_FAMILY = Sentences.ID_FAMILY
