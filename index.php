@@ -5,7 +5,6 @@ session_start();
 include_once 'controler/Home.php';
 include_once 'controler/Compte.php';
 include_once 'controler/Deconnexion.php';
-include_once 'controler/GestionSite.php';
 include_once 'controler/SignIn.php';
 include_once 'controler/SignInFinsh.php';
 include_once 'controler/SignUp.php';
@@ -18,6 +17,8 @@ include_once 'controler/SwitchLang.php';
 include_once 'controler/ManageUsers.php';
 include_once 'model/TranslationManage.php';
 include_once 'controler/translationManager.php';
+include_once 'model/VisuDeamnde.php';
+
 
 try{
      if (isset($_GET['action'])) {
@@ -44,10 +45,6 @@ try{
          if ($_GET['action'] == 'compte') {
              $compte = new Compte();
              $compte->show();
-         }
-         if ($_GET['action'] ==  'gererSite') {
-             $gestionSite = new GestionSite();
-             $gestionSite->show();
          }
          if ($_GET['action'] == 'translation') {
              $translation = new Translation();
@@ -95,6 +92,10 @@ try{
          if ($_GET['action'] == 'manageUsers'){
              $manage = new ManageUsers();
              $manage->show();
+         }
+         if($_GET['action'] == 'visuDemandes') {
+             $visuDemande = new VisuDemande();
+             $visuDemande->show();
          }
      }else {
          $home = new Home();

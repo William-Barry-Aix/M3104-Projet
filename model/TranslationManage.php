@@ -120,7 +120,7 @@ class TranslationManage extends dbConnect {
         }
     }*/
 
-    public function addTranslation($from, $to, $textToTranslate)
+    public function addTranslation($from, $to, $textToTranslate, $userID)
     {
         $dbLink = $this->dbConnectMysqli();
         $query = "SELECT ID_FAMILY FROM Sentences WHERE TEXT = '" . $textToTranslate . "'";
@@ -199,7 +199,7 @@ class TranslationManage extends dbConnect {
 
         }
 
-        $query = 'INSERT INTO Translation (SOURCE_LANGUAGE, TRANSLATED_LANGUAGE, DATE, STATUS, ID_FAMILY) VALUES (\'' . $from . '\', \'' . $to . '\', \'' . date('Y-m-d') . '\', \'' . 'WAITING' . '\', \'' . $id_family . '\')';
+        $query = 'INSERT INTO Translation (SOURCE_LANGUAGE, TRANSLATED_LANGUAGE, DATE, STATUS, ID_FAMILY, IDUSER) VALUES (\'' . $from . '\', \'' . $to . '\', \'' . date('Y-m-d') . '\', \'' . 'WAITING' . '\', \'' . $id_family . '\', \'' . $userID . '\')';
         echo $query;
         if (!($dbResult = mysqli_query($dbLink, $query))) {
             echo 'Erreur dans requête<br />';
@@ -217,6 +217,41 @@ class TranslationManage extends dbConnect {
 
         $dbLink = $this->dbConnectMysqli();
         $query = "SELECT * FROM Translation WHERE STATUS = 'WAITING'";
+        if (!($dbResult = mysqli_query($dbLink, $query))) {
+            echo 'Erreur dans requête<br />';
+            // Affiche le type d'erreur.
+            echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+            // Affiche la requête envoyée.
+            echo 'Requête : ' . $query . '<br/>';
+            exit();
+        } else {
+
+            while ($row = mysqli_fetch_assoc($dbResult)) {
+                $query = "SELECT TEXT FROM Sentences WHERE ID_FAMILY = " . $row["ID_FAMILY"] . " AND LANGUAGE = '" . $row["SOURCE_LANGUAGE"] . "'";
+                if (!($dbResult = mysqli_query($dbLink, $query))) {
+                    echo 'Erreur dans requête<br />';
+                    // Affiche le type d'erreur.
+                    echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+                    // Affiche la requête envoyée.
+                    echo 'Requête : ' . $query . '<br/>';
+                    exit();
+                } else {
+                    $rep = mysqli_fetch_assoc($dbResult);
+                    array_push($list, array($row["SOURCE_LANGUAGE"], $rep["TEXT"], $row["TRANSLATED_LANGUAGE"]));
+                }
+            }
+        }
+        return $list;
+    }
+
+    public function getTranslationRequestListPre()
+    {
+        $list = array();
+
+        $id = $_SESSION['userID'];
+
+        $dbLink = $this->dbConnectMysqli();
+        $query = "SELECT * FROM Translation WHERE IDUSER = '$id '";
         if (!($dbResult = mysqli_query($dbLink, $query))) {
             echo 'Erreur dans requête<br />';
             // Affiche le type d'erreur.
