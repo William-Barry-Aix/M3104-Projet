@@ -23,4 +23,5 @@ $meta
     </div>
 </body>
 <meta name="description" content="<?= $meta ?>" />
+<meta name="keywords" content="HTML,CSS,TRADUCTION,PHP,SQL" />
 </html>
