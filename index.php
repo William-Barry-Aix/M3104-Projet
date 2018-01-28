@@ -61,6 +61,9 @@ try{
              $swap->swap();
              $swap->back();
          }
+         if($GET['action'] == 'manageTranslations') {
+             $manager = new translationManager();
+         }
      }else {
          $home = new Home();
      }
