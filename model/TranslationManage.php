@@ -15,7 +15,7 @@ class TranslationManage extends dbConnect
 
         $query = "SELECT S1.TEXT AS text1, S2.TEXT AS text2"
             . " FROM Sentences AS S1, Sentences AS S2"
-            . " WHERE S1.LANGUAGE = '$from' AND S2.LANGUAGE = '$to' AND S1.TEXT= '$original'"
+            . " WHERE S1.LANGUAGE = '$from' AND S2.LANGUAGE = '$to' AND S1.TEXT= \"$original\""
             . " AND S2.ID_Family = S1.ID_Family";
         if (!($dbResult = mysqli_query($dbLink, $query))) {
             echo 'Erreur dans requête<br />';
@@ -125,7 +125,7 @@ class TranslationManage extends dbConnect
     {
 
         $dbLink = $this->dbConnect();
-        $query = "SELECT ID_FAMILY FROM Sentences WHERE TEXT = '" . $textToTranslate . "'";
+        $query = "SELECT ID_FAMILY FROM Sentences WHERE TEXT = \"" . $textToTranslate . "\"";
         echo $query . "</br>";
         if (!($dbResult = mysqli_query($dbLink, $query))) {
             echo 'Erreur dans requête<br />';
@@ -190,7 +190,7 @@ class TranslationManage extends dbConnect
             }
         }
 
-        $query = 'INSERT INTO Sentences (LANGUAGE, TEXT, ID_FAMILY) VALUES (\'' . $from . '\', \'' . $textToTranslate . '\', \'' . $id_family . '\'), (\'' . $to . '\', NULL , \'' . $id_family . '\')';
+        $query = 'INSERT INTO Sentences (LANGUAGE, TEXT, ID_FAMILY) VALUES (\'' . $from . '\', "' . $textToTranslate . '", \'' . $id_family . '\'), (\'' . $to . '\', NULL , \'' . $id_family . '\')';
         echo $query . "</br>";
         if (!($dbResult = mysqli_query($dbLink, $query))) {
             echo 'Erreur dans requête<br />';
@@ -252,7 +252,7 @@ class TranslationManage extends dbConnect
 
         $dbLink = $this->dbConnect();
 
-        $query = "SELECT ID_FAMILY FROM Sentences WHERE LANGUAGE = '$from' AND TEXT = '$textToTranslate'";
+        $query = "SELECT ID_FAMILY FROM Sentences WHERE LANGUAGE = '$from' AND TEXT = \"$textToTranslate\"";
         if (!($dbResult = mysqli_query($dbLink, $query))) {
             echo 'Erreur dans requête<br />';
             // Affiche le type d'erreur.
@@ -264,7 +264,7 @@ class TranslationManage extends dbConnect
             $rep = mysqli_fetch_assoc($dbResult);
             $id_family = $rep["ID_FAMILY"];
 
-            $query = "UPDATE Sentences SET TEXT = '$text_translated' WHERE ID_FAMILY = '$id_family' AND LANGUAGE = '$to'";
+            $query = "UPDATE Sentences SET TEXT = \"$text_translated\" WHERE ID_FAMILY = '$id_family' AND LANGUAGE = '$to'";
             if (!($dbResult = mysqli_query($dbLink, $query))) {
                 echo 'Erreur dans requête<br />';
                 // Affiche le type d'erreur.

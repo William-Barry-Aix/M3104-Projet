@@ -35,6 +35,12 @@ class translation
             $from = $_POST["lang1"];
             $to = $_POST["lang2"];
 
+            if($_POST["lang1"] ==  $_POST['lang2']) {
+                header('Location: index.php?action=translation&text1='.$original
+                    .'&text2=Please select different languages');
+                return;
+            }
+
             /*$result = $translation->getTranslation($from, $to, $textToTranslate);
             if($result) {
                 $_SESSION["textTranslated"] = $result["reponseSQL"];
@@ -54,8 +60,18 @@ class translation
             $original = $_POST["original"];
             $from = $_POST["lang1"];
             $to = $_POST["lang2"];
+
+            if($_POST["lang1"] ==  $_POST['lang2']) {
+                header('Location: index.php?action=translation&text1='.$original
+                    .'&text2=Please select different languages');
+                return;
+            }
             //manque méthode de sugestion
             $translation = $translation->addTranslation($from, $to, $original);
+
+
+            header('Location: index.php?action=translation&text1='.$original
+                .'&text2=Request sent');
 
         }
     }

@@ -30,6 +30,7 @@
                              <input type="text"  class="form-control" name="TEXT_TRANSLATED" placeholder="Your Translation">
                         </div>
                         <button type="submit" name="addTranslation" value="true" class="btn btn-primary mb-2">Add !</button>
+                        <button type="submit" name="deleteTranslation" value="true" class="btn btn-primary mb-2">Delete this</button>
                     </form>
                 ';
             }
