@@ -9,6 +9,8 @@ class SignUp
     public function signUp(){
         require ('view/frontend/signUpView.php');
     }
+
+    // recuperration des donnés de l'utilisateur et l'ajoute dans la BD puis envoie un mail recapitulatif
     public function signUpRegister(){
         $user = new UsersManage();
 

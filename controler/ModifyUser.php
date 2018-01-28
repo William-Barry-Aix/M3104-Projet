@@ -14,6 +14,7 @@ class ModifyUser
     {
     }
 
+    // Gestion des utilisateurs par un admin : supprimer un utilisateurs ou modifier ses droits
     public function modifyUser(){
         $UserManage = new UsersManage();
         $IDD = '';

@@ -13,6 +13,7 @@ class translationManager
 
     }
 
+    // Recupere toute les traduction et les affiche sur la page
     public function show() {
         $translation = new TranslationManage();
         $list = $translation->getTranslationRequestList();
@@ -28,6 +29,7 @@ class translationManager
         require('view/frontend/manageTradView.php');
     }
 
+    // Confirme la traduction
     public function addTranslationRequest() {
         $translation = new TranslationManage();
 

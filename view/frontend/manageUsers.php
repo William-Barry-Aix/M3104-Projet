@@ -1,4 +1,5 @@
-<?php $title = 'Translator' ?>
+<?php $title = 'Translator';
+$meta = "Page de gestion des utilisateurs";?>
 <?php ob_start(); ?>
     <section id="description">
         <div class="container-fluid">

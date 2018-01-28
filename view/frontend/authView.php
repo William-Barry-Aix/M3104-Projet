@@ -1,4 +1,6 @@
-<?php $title = "Sign in" ?>
+<?php $title = "Sign in" ;
+$meta = "Page de connection";
+?>
 <?php ob_start(); ?>
     <div class="container justify-content-center" >
         <form method="post"action="index.php?action=signinfinish" class="col-6 my-10 mx-auto" style="margin-top: 25%">

@@ -1,4 +1,5 @@
 <?php $title = SignUp;
+$meta = "Page de création de comtpe";
 ?>
 <?php ob_start(); ?>
     <form method="post" action="index.php?action=reinitMdp" method="post">

@@ -14,6 +14,8 @@ class UsersManage extends DbConnect
 
     }
 
+
+    // Ajotue un utilisateur a la BD
     public function addUser($nom,$prenom,$email,$password,$tel,$today)
     {
         $dbLink = $this->dbConnect();
@@ -32,6 +34,8 @@ class UsersManage extends DbConnect
         }
 
     }
+
+    // Connect un utilisateur sur le site
     public function getUser($email,$password)
     {
         $dbLink = $this->dbConnect();
@@ -70,6 +74,7 @@ class UsersManage extends DbConnect
         }
     }
 
+    // Change le mot de passe d'un utilisateur
     public function changeMdp($email,$newpassword,$password)
     {
         $dbLink = $this->dbConnect();
@@ -88,6 +93,7 @@ class UsersManage extends DbConnect
         }
     }
 
+    // Modifie le mot de passe avec un mdp aleatoir d'un utilisateur depuis sont adresse mail si il a utiliser mot de passe oublier
     public function setRandMdp($email,$newpassword){
         $dbLink = $this->dbConnect();
 
@@ -102,6 +108,8 @@ class UsersManage extends DbConnect
             exit();
         }
     }
+
+    //supprime un utilisateur
     public function deleteUser($ID){
         $dbLink = $this->dbConnect();
 
@@ -114,6 +122,7 @@ class UsersManage extends DbConnect
         }
     }
 
+    // Change le type de compte d'un utilisateur
     Public function changeRight($ID,$typeC){
         $dbLink = $this->dbConnect();
         $request = $dbLink->prepare('UPDATE Users 

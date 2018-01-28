@@ -1,4 +1,5 @@
 <?php $title = 'Translator';
+$meta = "Page de gestion de compte";
 ?>
 <?php ob_start(); ?>
 
