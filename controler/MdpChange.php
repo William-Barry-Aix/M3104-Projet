@@ -1,13 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jb
- * Date: 16/01/2018
- * Time: 17:52
- */
-
-class mdpChange
+class MdpChange
 {
+    public function __construct()
+    {
+    }
+
     function mdpChange (){
         $mdp = $_POST['mdp'];
         $newMdp = $_POST['newMdp'];

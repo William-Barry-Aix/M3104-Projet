@@ -7,6 +7,10 @@
  */
 
 class TranslationManage extends dbConnect {
+    function __construct()
+    {
+    }
+
     public function getTranslation($from, $to, $original) {
 
         $dbLink = $this->dbConnectMysqli();

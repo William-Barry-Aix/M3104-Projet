@@ -1,62 +1,69 @@
 <?php
 session_start();
 
-include 'controler/Home.php';
-include 'controler/compte.php';
-include 'controler/deconnexion.php';
-include 'controler/gestionSite.php';
-include 'controler/signIn.php';
-include 'controler/signInFinsh.php';
-include 'controler/signUp.php';
-include 'controler/translation.php';
-include 'controler/mdpChange.php';
-include 'controler/goToFormReinit.php';
-include 'controler/reinitMdp.php';
-include 'controler/SwitchLang.php';
-include 'model/TranslationManage.php';
+
+include_once 'controler/Home.php';
+include_once 'controler/Compte.php';
+include_once 'controler/Deconnexion.php';
+include_once 'controler/GestionSite.php';
+include_once 'controler/SignIn.php';
+include_once 'controler/SignInFinsh.php';
+include_once 'controler/SignUp.php';
+include_once 'controler/Translation.php';
+include_once 'controler/MdpChange.php';
+include_once 'controler/GoToFormReinit.php';
+include_once 'controler/ReinitMdp.php';
+include_once 'controler/SwitchLang.php';
+include_once 'controler/ManageUsers.php';
+include_once 'model/TranslationManage.php';
 
 try{
      if (isset($_GET['action'])) {
-         if ($_GET['action'] == 'signin') {
-             $signin = new signin();
+         if ($_GET['action'] == 'SignIn') {
+             $signin = new SignIn();
+             $signin->show();
          }
          if ($_GET['action'] ==  'signinfinish') {
-             $signinFinish = new signInFinsh();
+             $signinFinish = new SignInFinsh();
              $signinFinish->signInFinish();
          }
         if ($_GET['action'] ==  'signUpRegister') {
-             $signup = new signUp();
+             $signup = new SignUp();
              $signup->signUpRegister();
         }
-         if ($_GET['action'] ==  'signup') {
-             $signup = new signUp();
+         if ($_GET['action'] == 'SignUp') {
+             $signup = new SignUp();
              $signup->signUp();
          }
-         if ($_GET['action'] ==  'deconnexion') {
-             $deconnexion = new deconnexion();
+         if ($_GET['action'] == 'Deconnexion') {
+             $deconnexion = new Deconnexion();
              $deconnexion->disconect();
          }
-         if ($_GET['action'] ==  'compte') {
-             $compte = new compte();
+         if ($_GET['action'] == 'Compte') {
+             $compte = new Compte();
+             $compte->show();
          }
          if ($_GET['action'] ==  'gererSite') {
-             $GestionSite = new gestionSite();
+             $gestionSite = new GestionSite();
+             $gestionSite->show();
          }
-         if ($_GET['action'] ==  'translation') {
-             $translation = new translation();
+         if ($_GET['action'] == 'Translation') {
+             $translation = new Translation();
              $translation->show();
          }
          if ($_GET['action'] ==  'passwordChange') {
-             $mdpChange = new mdpChange();
+             $mdpChange = new MdpChange();
+             $mdpChange->mdpChange();
          }
-         if ($_GET['action'] ==  'reinitMdp') {
-             $reinitMdp = new reinitMdp();
+         if ($_GET['action'] == 'ReinitMdp') {
+             $reinitMdp = new ReinitMdp();
+             $reinitMdp->reinitMdp();
          }
          if ($_GET['action'] ==  'goToFormReinit') {
              $goToFormReinit = new goToFormReinit();
          }
          if ($_GET['action'] == 'translationQuery') {
-             $onGoingTranslation = new translation();
+             $onGoingTranslation = new Translation();
              if (isset($_POST['translate'])) {
                  $onGoingTranslation->translate();
              }elseif (isset($_POST['suggest'])) {
@@ -68,8 +75,13 @@ try{
              $swap->swap();
              $swap->back();
          }
+         if ($_GET['action'] == 'manageUsers'){
+             $manage = new ManageUsers();
+             $manage->show();
+         }
      }else {
          $home = new Home();
+         $home->show();
      }
 }catch (Exception $e){
     echo 'Erreur : ' . $e->getMessage();

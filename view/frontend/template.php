@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <?php require_once('view/frontend/loadTrad.php')?>
 <?php require('nav.php');?>
 <!DOCTYPE html>
