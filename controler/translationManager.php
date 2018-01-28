@@ -16,7 +16,15 @@ class translationManager
     public function show() {
         $translation = new TranslationManage();
         $list = $translation->getTranslationRequestList();
-
+        function cmp($a,$b){
+            $a = $a['STATUS'];
+            $b = $b['STATUS'];
+            if($a == $b){
+                return 0;
+            }
+            return ($a < $b) ? 1 : -1;
+        }
+        uasort($list, 'cmp');
         require('view/frontend/manageTradView.php');
     }
 

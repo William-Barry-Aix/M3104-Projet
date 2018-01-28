@@ -36,7 +36,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary" name="translate" value="true"><?= _("Translate !") ?></button>
                 <?php if(!$readable):?>
-                <button type="submit" class="btn btn-primary float-right" name="suggest" value="true"><?= _("Suggest") ?></button>
+                <button type="submit" class="btn btn-primary float-right" name="suggest" value="true"><?= _("Make request") ?></button>
                 <?php endif; ?>
             </div>
         </form>

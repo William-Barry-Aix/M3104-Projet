@@ -213,33 +213,17 @@ class TranslationManage extends dbConnect {
 
     public function getTranslationRequestList()
     {
-        $list = array();
-
-        $dbLink = $this->dbConnectMysqli();
-        $query = "SELECT * FROM Translation WHERE STATUS = 'WAITING'";
-        if (!($dbResult = mysqli_query($dbLink, $query))) {
-            echo 'Erreur dans requête<br />';
-            // Affiche le type d'erreur.
-            echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
-            // Affiche la requête envoyée.
-            echo 'Requête : ' . $query . '<br/>';
-            exit();
-        } else {
-
-            while ($row = mysqli_fetch_assoc($dbResult)) {
-                $query = "SELECT TEXT FROM Sentences WHERE ID_FAMILY = " . $row["ID_FAMILY"] . " AND LANGUAGE = '" . $row["SOURCE_LANGUAGE"] . "'";
-                if (!($dbResult = mysqli_query($dbLink, $query))) {
-                    echo 'Erreur dans requête<br />';
-                    // Affiche le type d'erreur.
-                    echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
-                    // Affiche la requête envoyée.
-                    echo 'Requête : ' . $query . '<br/>';
-                    exit();
-                } else {
-                    $rep = mysqli_fetch_assoc($dbResult);
-                    array_push($list, array($row["SOURCE_LANGUAGE"], $rep["TEXT"], $row["TRANSLATED_LANGUAGE"]));
-                }
-            }
+        $dbLink = $this->dbConnect();
+        try {
+            $translations = $dbLink->query('SELECT Translation.* , Sentences.*
+                                            FROM Translation
+                                            INNER JOIN Sentences ON Translation.ID_FAMILY = Sentences.ID_FAMILY
+                                            WHERE Sentences.LANGUAGE = Translation.SOURCE_LANGUAGE;')->fetchAll(PDO::FETCH_ASSOC);
+            return $translations;
+        }
+        catch (PDOException $e){
+            echo 'Erreur : ' , $e->getMessage(), PHP_EOL;
+            return array();
         }
         return $list;
     }

@@ -16,10 +16,15 @@ class ModifyUser
 
     public function modifyUser(){
         $UserManage = new UsersManage();
-
-        $IDD = $_POST['delete'];
-        $IDM = $_POST['modify'];
-        $typeC = $_POST['typeC'];
+        $IDD = '';
+        $IDM = '';
+        $typeC = '';
+        if (isset($_POST['delete']))
+            $IDD = $_POST['delete'];
+        if (isset($_POST['modify']))
+            $IDM = $_POST['modify'];
+        if (isset($_POST['typeC']))
+            $typeC = $_POST['typeC'];
 
         if ($IDD != NULL){
             $UserManage->deleteUser($IDD);

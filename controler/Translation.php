@@ -13,8 +13,13 @@ class Translation
         if(isset($_GET['text1']) && isset($_GET['text2'])){
             $trad['text1'] = $_GET['text1'];
             $trad['text2'] = $_GET['text2'];
-            $readable = '';
+
         }
+        if(isset($_SESSION['type'])){
+            if($_SESSION['type'] != 0 )
+                $readable = '';
+        }
+
         require ('view/frontend/tradView.php');
     }
     public function translate() {

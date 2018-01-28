@@ -14,26 +14,26 @@
     <div class="container">
         <div class="form-group">
             <?php
-            for ($ligne = 0; $ligne < sizeof($list); ++$ligne) {
-                echo '
-                    <form class="form-inline" method="post" action="index.php?action=manage">
-                        <div class="form-group mb-2">
-                            <input type="text" readonly class="form-control" name="FROM" value="' . $list[$ligne][0] . '">
-                         </div>
-                        <div class="form-group mx-sm-3 mb-2">
-                             <input type="text" readonly class="form-control" name="TEXT_TO_TRANSLATE" value="' . $list[$ligne][1] . '">
-                        </div>
-                        <div class="form-group mx-sm-3 mb-2">
-                             <input type="text" readonly class="form-control" name="TO" value="' . $list[$ligne][2] . '">
-                        </div>
-                        <div class="form-group mx-sm-3 mb-2">
-                             <input type="text"  class="form-control" name="TEXT_TRANSLATED" placeholder="Your Translation">
-                        </div>
-                        <button type="submit" name="addTranslation" value="true" class="btn btn-primary mb-2">Add !</button>
-                        <button type="submit" name="deleteTranslation" value="true" class="btn btn-primary mb-2">Delete this</button>
-                    </form>
-                ';
-            }
+            foreach ($list as $request){?>
+            <form class="form-inline" method="post" action="index.php?action=manage">
+                <div class="form-group mb-2">
+                    <input type="text" readonly class="form-control" name="FROM" value="<?=$request['SOURCE_LANGUAGE']?>">
+                 </div>
+                <div class="form-group mx-sm-3 mb-2">
+                     <input type="text" readonly class="form-control" name="TEXT_TO_TRANSLATE" value="<?=$request['TEXT']?>">
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                     <input type="text" readonly class="form-control" name="TO" value="<?=$request['TRANSLATED_LANGUAGE']?>">
+                </div>
+                <?php if($request['STATUS'] == 'WAITING'):?>
+                <div class="form-group mx-sm-3 mb-2">
+                     <input type="text"  class="form-control" name="TEXT_TRANSLATED" placeholder="Your Translation">
+                </div>
+                <button type="submit" name="addTranslation" value="true" class="btn btn-primary mb-2">Add !</button>
+                <button type="submit" name="deleteTranslation" value="true" class="btn btn-primary mb-2">Delete this</button>
+                <?php endif; ?>
+            </form>
+            <?php }
             ?>
         </div>
     </div>
