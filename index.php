@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 include_once 'controler/Home.php';
 include_once 'controler/Compte.php';
 include_once 'controler/Deconnexion.php';
@@ -10,6 +11,8 @@ include_once 'controler/SignInFinsh.php';
 include_once 'controler/SignUp.php';
 include_once 'controler/Translation.php';
 include_once 'controler/MdpChange.php';
+include_once 'controler/GoToFormReinit.php';
+include_once 'controler/ReinitMdp.php';
 include_once 'controler/SwitchLang.php';
 include_once 'controler/ManageUsers.php';
 include_once 'model/TranslationManage.php';
@@ -55,6 +58,9 @@ try{
          if ($_GET['action'] == 'ReinitMdp') {
              $reinitMdp = new ReinitMdp();
              $reinitMdp->reinitMdp();
+         }
+         if ($_GET['action'] ==  'goToFormReinit') {
+             $goToFormReinit = new goToFormReinit();
          }
          if ($_GET['action'] == 'translationQuery') {
              $onGoingTranslation = new Translation();
