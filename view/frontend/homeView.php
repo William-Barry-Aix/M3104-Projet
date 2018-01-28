@@ -1,4 +1,6 @@
-<?php $title = 'Translator' ?>
+<?php $title = 'Translator';
+$meta = "Page de d'accueil";
+?>
 <?php $welcome = "";
 if (isset($_SESSION['nom']))
 {

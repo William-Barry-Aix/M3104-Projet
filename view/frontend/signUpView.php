@@ -1,5 +1,6 @@
-
-<?php $title = 'SignUp' ?>
+<?php $title = 'SignUp' ;
+$meta = "Page de création de compte";
+?>
 <?php
 if (isset($_SESSION['mdpErreur'])){
     if ($_SESSION['mdpErreur'] == 'true'){

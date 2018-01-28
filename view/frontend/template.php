@@ -1,5 +1,7 @@
 <?php require_once('view/frontend/loadTrad.php')?>
-<?php require('nav.php');?>
+<?php require('nav.php');
+$meta
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,4 +22,5 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script> 
     </div>
 </body>
+<meta name="description" content="<?= $meta ?>" />
 </html>

@@ -1,4 +1,6 @@
-<?php $title = "Translate" ?>
+<?php $title = "Translate" ;
+$meta = "Page de visualisation des demandes des utilisateurs premium";
+?>
 <?php ob_start(); ?>
 
     <section id="description">

@@ -1,4 +1,6 @@
-<?php $title = "Translate" ?>
+<?php $title = "Translate";
+$meta = "Page de gestion de demande de tracduction";
+?>
 <?php ob_start(); ?>
 
     <section id="description">

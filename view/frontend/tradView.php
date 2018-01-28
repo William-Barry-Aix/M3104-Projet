@@ -1,4 +1,5 @@
-<?php $title = "Translate" ?>
+<?php $title = "Translate" ;
+$meta = "Page de tradcution";?>
 <?php ob_start(); ?>
     <section id="description">
         <div class="container-fluid">

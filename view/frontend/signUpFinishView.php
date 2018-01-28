@@ -1,4 +1,5 @@
 <?php $title = SignUp;
+$meta = "Page de confirmation d'incription";
 ?>
 <?php ob_start(); ?>
     <h1>Merci pour votre souscription !</h1>
