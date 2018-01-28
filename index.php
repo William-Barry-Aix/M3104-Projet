@@ -17,7 +17,7 @@ include_once 'controler/SwitchLang.php';
 include_once 'controler/ManageUsers.php';
 include_once 'model/TranslationManage.php';
 include_once 'controler/translationManager.php';
-include_once 'model/VisuDeamnde.php';
+include_once 'controler/VisuDemande.php';
 
 
 try{

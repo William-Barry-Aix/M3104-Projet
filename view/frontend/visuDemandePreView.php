@@ -14,22 +14,15 @@
     <div class="container">
         <div class="form-group">
             <?php
-            for ($ligne = 0; $ligne < sizeof($list); ++$ligne) {
-                echo '
+            foreach ($list as $request) { ?>
                         <div class="form-group mb-2">
-                            <input type="text" readonly class="form-control" name="FROM" value="' . $list[$ligne][0] . '">
-                         </div>
-                        <div class="form-group mx-sm-3 mb-2">
-                             <input type="text" readonly class="form-control" name="TEXT_TO_TRANSLATE" value="' . $list[$ligne][1] . '">
+                            <?= $request['STATUS'] ?>
+
+                            <?= $request['LANGUAGE'] ?>
+
+                            <?= $request['TEXT'] ?>
                         </div>
-                        <div class="form-group mx-sm-3 mb-2">
-                             <input type="text" readonly class="form-control" name="TO" value="' . $list[$ligne][2] . '">
-                        </div>
-                        <div class="form-group mx-sm-3 mb-2">
-                             <input type="text"  class="form-control" name="TEXT_TRANSLATED" placeholder="Your Translation">
-                        </div>
-                ';
-            }
+            <?php }
             ?>
         </div>
     </div>
