@@ -20,16 +20,16 @@
                         <?php if (isset($_SESSION['type'])): ?>
                             <?php if ($_SESSION['type'] == 0): ?>
                                 <li class="nav-item dropdown py-1">
-                                    <a href="#" class="nav-link px-3 dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i><?= _("Options") ?><b class="caret"></b></a>
+                                    <a href="#" class="nav-link px-3 dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i><?=$tradList["Options"]?><b class="caret"></b></a>
                                     <ul class="dropdown-menu py-0  my-0 border-0">
-                                        <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=compte"><?= _("Account") ?></a></li>
-                                        <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=deconnexion"><?= _("Disconnection") ?></a></li>
+                                        <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=compte"><?= $tradList["Account"]?></a></li>
+                                        <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=deconnexion"><?= $tradList["Disconnection"] ?></a></li>
                                     </ul>
                                 </li>
                             <?php endif; ?>
                             <?php if ($_SESSION['type'] == 1): ?>
                                 <li class="nav-item dropdown py-1">
-                                    <a href="#" class="nav-link px-3 dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i><?= _("Options") ?><b class="caret"></b></a>
+                                    <a href="#" class="nav-link px-3 dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i><?= $tradList["Options"] ?><b class="caret"></b></a>
                                     <ul class="dropdown-menu py-0  my-0 border-0">
                                         <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=compte"><?= _("Account") ?></a></li>
                                         <li class="px-3  nav-item"><a class="nav-link" href="index.php?action=deconnexion"><?= _("Disconnection") ?></a></li>

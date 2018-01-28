@@ -6,7 +6,6 @@ class Deconnexion
     }
 
     public function disconect(){
-        session_start();
         $_SESSION = array();
         session_destroy();
         session_register_shutdown();
