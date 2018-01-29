@@ -14,6 +14,7 @@ class goToFormReinit
 
     //Affichage de la page
     function goToFormReinit(){
+
         require('view/frontend/formReinitMdpView.php');
     }
 }

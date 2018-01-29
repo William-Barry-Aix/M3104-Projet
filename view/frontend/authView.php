@@ -13,13 +13,13 @@ $meta = "Page de connection";
             </div>
             <div class="row">
                 <div class="form-group">
-                    <label for="exampleInputPassword1"><?= $tradList["Password"] ?></label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="<?= $tradList["Password"] ?>">
+                    <label for="exampleInputPassword1"><?= $_SESSION['tradList']["Password"] ?></label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="<?= $_SESSION['tradList']["Password"] ?>">
                 </div>
             </div>
             <div class="row">
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <a href="index.php?action=goToFormReinit" class="btn btn-info" role="button"><?= $tradList["Password Forgot"] ?></a>
+                <a href="index.php?action=goToFormReinit" class="btn btn-info" role="button"><?= $_SESSION['tradList']["Password Forgot"] ?></a>
             </div>
         </form>
     </div>

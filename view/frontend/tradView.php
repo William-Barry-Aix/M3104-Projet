@@ -6,7 +6,7 @@ $meta = "Page de tradcution";?>
             <div class="jumbotron jumbotron-fluid intro my-0 mb-3 py-1 text-center">
                 <div class="container">
                     <h1 class="display-4">Translation</h1>
-                    <p class="lead"><?= $tradList["Here you can translate everything you need thanks to other members"] ?></p>
+                    <p class="lead"><?= $_SESSION['tradList']["Here you can translate everything you need thanks to other members"] ?></p>
                 </div>
             </div>
         </div>
@@ -35,9 +35,9 @@ $meta = "Page de tradcution";?>
 
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary" name="translate" value="true"><?= _("Translate !") ?></button>
+                <button type="submit" class="btn btn-primary" name="translate" value="true"><?= $_SESSION['tradList']["Translate !"] ?></button>
                 <?php if(!$readable):?>
-                <button type="submit" class="btn btn-primary float-right" name="suggest" value="true"><?= _("Make request") ?></button>
+                <button type="submit" class="btn btn-primary float-right" name="suggest" value="true"><?= $_SESSION['tradList']["Make request"] ?></button>
                 <?php endif; ?>
             </div>
         </form>

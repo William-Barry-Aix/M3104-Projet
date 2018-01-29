@@ -10,6 +10,7 @@ class ManageUsers
     public function show(){
         $pdo = new UsersManage();
         $users = $pdo->getUsers();
+
         require('view/frontend/manageUsers.php');
     }
 }

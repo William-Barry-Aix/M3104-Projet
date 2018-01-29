@@ -18,9 +18,12 @@ include_once 'controler/ManageUsers.php';
 include_once 'model/TranslationManage.php';
 include_once 'controler/translationManager.php';
 include_once 'controler/VisuDemande.php';
+include_once 'controler/LoadTrad.php';
 
 
 try{
+    $_SESSIONtradList = new LoadTrad();
+    $_SESSIONtradList = $_SESSIONtradList->loadTradsSession();
      if (isset($_GET['action'])) {
          if ($_GET['action'] == 'signin') {
              $signin = new SignIn();

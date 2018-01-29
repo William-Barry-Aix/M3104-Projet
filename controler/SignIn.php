@@ -7,6 +7,7 @@ class SignIn
 
     //Affichage de la page
     function show (){
+
         require ('view/frontend/authView.php');
     }
 }

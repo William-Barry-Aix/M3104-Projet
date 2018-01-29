@@ -12,6 +12,7 @@ class MdpChange
         $newMdpVerif = $_POST['verifNewMdp'];
         $email = $_SESSION['email'];
 
+
         if ( $newMdp == $newMdpVerif){
             $user = new UsersManage();
 

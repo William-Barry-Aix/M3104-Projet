@@ -11,8 +11,8 @@ if (isset($_SESSION['nom']))
         <div class="container-fluid">
             <div class="jumbotron jumbotron-fluid intro my-0 py-1 text-center">
                 <div class="container">
-                    <h1 class="display-4"><?= $tradList["Translation website"] ?></h1>
-                    <p class="lead"><?= $tradList["Here you can translate everything you need thanks to other members"] ?></p>
+                    <h1 class="display-4"><?= $_SESSION['tradList']["Translation website"] ?></h1>
+                    <p class="lead"><?= $_SESSION['tradList']["Here you can translate everything you need thanks to other members"] ?></p>
                 </div>
             </div>
         <?= $welcome ?>

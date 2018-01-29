@@ -1,4 +1,4 @@
-<?php require_once('view/frontend/loadTrad.php')?>
+
 <?php require('nav.php');
 $meta
 ?>
@@ -40,7 +40,7 @@ $meta
     </div>
 </body>
 <footer>
-    <p><?= $tradList["Legal Notice: Using bootstrap and Php Manual"] ?></p>
+    <p><?= $_SESSION['tradList']["Legal Notice: Using bootstrap and Php Manual"] ?></p>
 </footer>
 <meta name="description" content="<?= $meta ?>" />
 <meta name="keywords" content="HTML,CSS,TRADUCTION,PHP,SQL" />

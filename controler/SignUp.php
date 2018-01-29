@@ -33,6 +33,7 @@ class SignUp
         $message .= 'Email : ' . $email . PHP_EOL;
         $message .= 'Mot de passe : ' . PHP_EOL . $password;
         mail($email,"Creation de votre compte",$message);
+
         require ('view/frontend/signUpFinishView.php');
     }
 }

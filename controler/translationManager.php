@@ -26,6 +26,7 @@ class translationManager
             return ($a < $b) ? 1 : -1;
         }
         uasort($list, 'cmp');
+
         require('view/frontend/manageTradView.php');
     }
 

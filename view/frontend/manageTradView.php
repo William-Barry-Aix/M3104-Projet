@@ -7,7 +7,7 @@ $meta = "Page de gestion de demande de tracduction";
         <div class="container-fluid">
             <div class="jumbotron jumbotron-fluid intro my-0 mb-3 py-1 text-center">
                 <div class="container">
-                    <h1 class="display-4"><?= $tradList["Translation requests"] ?></h1>
+                    <h1 class="display-4"><?= $_SESSION['tradList']["Translation requests"] ?></h1>
                 </div>
             </div>
         </div>
@@ -29,10 +29,10 @@ $meta = "Page de gestion de demande de tracduction";
                 </div>
                 <?php if($request['STATUS'] == 'WAITING'):?>
                 <div class="form-group mx-sm-3 mb-2">
-                     <input type="text"  class="form-control" name="TEXT_TRANSLATED" placeholder="<?= $tradList["Your Translation"] ?>">
+                     <input type="text"  class="form-control" name="TEXT_TRANSLATED" placeholder="<?= $_SESSION['tradList']["Your Translation"] ?>">
                 </div>
-                <button type="submit" name="addTranslation" value="true" class="btn btn-primary mb-2"><?= $tradList["Add !"] ?></button>
-                <button type="submit" name="deleteTranslation" value="true" class="btn btn-primary mb-2"><?= $tradList["Delete this"] ?></button>
+                <button type="submit" name="addTranslation" value="true" class="btn btn-primary mb-2"><?= $_SESSION['tradList']["Add !"] ?></button>
+                <button type="submit" name="deleteTranslation" value="true" class="btn btn-primary mb-2"><?= $_SESSION['tradList']["Delete this"] ?></button>
                 <?php endif; ?>
             </form>
             <?php }

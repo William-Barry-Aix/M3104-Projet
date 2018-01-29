@@ -7,6 +7,7 @@ class Home
 
     //Affichage de la page
     function show(){
+
         require('view/frontend/homeView.php');
     }
 }

@@ -9,6 +9,7 @@ class Deconnexion
         $_SESSION = array();
         session_destroy();
         session_register_shutdown();
-        require('view/frontend/homeView.php');
+
+        header('Location: index.php');
     }
 }
